@@ -25,6 +25,7 @@ class interventi_view : AppCompatActivity() {
     internal lateinit var editTextkm: EditText
     internal lateinit var editTextPrezzo: EditText
     internal lateinit var editTextDescr: EditText
+    lateinit var  ref: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,13 +45,11 @@ class interventi_view : AppCompatActivity() {
         val buttonPrev= findViewById(R.id.buttonPreventivo) as ImageButton
         val buttonContr = findViewById(R.id.buttonControllo) as  ImageButton
         val buttonTagl = findViewById(R.id.buttonTagliando) as ImageButton
-        val colorRed = "B20D0D"
-        val colorGray = "#BA353835"
+
 
         fun disabled(){
 
             buttonSave.setImageResource(R.mipmap.pic_107)
-            titolo.setBackgroundColor(Color.GRAY)
 
             saveText.text = "Nuovo"
                 editTextData.isEnabled = false
@@ -62,7 +61,6 @@ class interventi_view : AppCompatActivity() {
 
         fun enabled(){
             buttonSave.setImageResource(R.mipmap.pic_106)
-            titolo.setBackgroundColor(Color.RED)
 
             saveText.text = "Salva"
                 editTextData.isEnabled = true
@@ -138,10 +136,12 @@ class interventi_view : AppCompatActivity() {
     }
 
     private fun saveMode(){
-
-        val ref = FirebaseDatabase.getInstance().getReference("officinaInterventi")
+        var idInter = editTextData.text.toString() + " " + editTextTipo.text.toString()
         val idName = targaTit.text.toString().trim()
+        ref = FirebaseDatabase.getInstance().getReference("officinaInterventi").child(idName)
+
         val offInterv = offInterv(
+            idInter,
             editTextData.toString().trim(),
             editTextTipo.text.toString().trim(),
             editTextkm.text.toString().trim(),
@@ -149,7 +149,7 @@ class interventi_view : AppCompatActivity() {
             editTextDescr.text.toString().trim()
         )
 
-        ref.child(idName).setValue(offInterv).addOnCompleteListener {
+        ref.child(idInter).setValue(offInterv).addOnCompleteListener {
             Toast.makeText(applicationContext, "Salvataggio avvenuto con successo!", Toast.LENGTH_LONG)
         }
 

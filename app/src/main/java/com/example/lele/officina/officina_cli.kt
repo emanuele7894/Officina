@@ -30,8 +30,11 @@ class officina_cli : AppCompatActivity() {
     internal lateinit var  marca_modello: EditText
     internal lateinit var  targa: EditText
     internal lateinit var  note: EditText
+    var idName = ""
+    var idTarga = ""
 
     lateinit var  ref: DatabaseReference
+    lateinit var  ref2: DatabaseReference
     lateinit var dati : MutableList<officinaDati>
 
 
@@ -59,6 +62,7 @@ class officina_cli : AppCompatActivity() {
         val buttonInterv = findViewById(R.id.buttonInterv) as ImageButton
         val buttonTel = findViewById(R.id.buttonTel) as ImageButton
         val buttonMail = findViewById(R.id.buttonMail) as ImageButton
+        val deleteButton = findViewById(R.id.deleteButton) as ImageButton
 
 
 
@@ -70,6 +74,7 @@ class officina_cli : AppCompatActivity() {
 
         dati = mutableListOf()
         ref = FirebaseDatabase.getInstance().getReference("officinaData")
+        ref2 = FirebaseDatabase.getInstance().getReference("officinaInterventi")
 
         var nomeTitolo =  intent.getStringExtra(".nomeid")
 
@@ -148,7 +153,8 @@ class officina_cli : AppCompatActivity() {
                                     marca_modello.text = Editable.Factory.getInstance().newEditable(dati[numeroId.toInt()].marca.toString())
                                         targa.text = Editable.Factory.getInstance().newEditable(dati[numeroId.toInt()].targa.toString())
                                             note.text = Editable.Factory.getInstance().newEditable(dati[numeroId.toInt()].note.toString())
-
+                                                 idName = dati[numeroId.toInt()].idName.toString()
+                                                    idTarga = dati[numeroId.toInt()].targa.toString()
 
                     }
 
@@ -222,7 +228,15 @@ class officina_cli : AppCompatActivity() {
 
             }
         })
+            deleteButton.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(v: View?) {
+                    //Elimina il cliente con tutti i dati e interventi
+                    ref.child(idName).removeValue()
+                        ref2.child(idTarga).removeValue()
+                            finish()
 
+                }
+            })
 //Pulsante interventi
 
             buttonInterv.setOnClickListener(object : View.OnClickListener {
@@ -252,6 +266,7 @@ class officina_cli : AppCompatActivity() {
     val ref = FirebaseDatabase.getInstance().getReference("officinaData")
         val idName = nome_cognome.text.toString().trim() + "-" + targa.text.toString().trim()
         val officinaDati = officinaDati(
+            idName.toString().trim(),
             intent.getStringExtra(".numec"),
             current.toString().trim(),
             nome_cognome.text.toString().trim(),
