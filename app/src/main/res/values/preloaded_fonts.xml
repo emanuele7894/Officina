@@ -4,6 +4,8 @@
         <item>@font/alike_angular</item>
         <item>@font/allerta</item>
         <item>@font/caudex</item>
+        <item>@font/heebo</item>
+        <item>@font/heebo_bold</item>
         <item>@font/kite_one</item>
     </array>
 </resources>

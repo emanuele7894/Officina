@@ -20,13 +20,13 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/itemO"
-            android:orientation="vertical" android:background="@color/color2">
+            android:orientation="vertical" android:background="@drawable/header_bg">
 
         <TextView
                 android:id="@+id/titoloO1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/allerta"
+                android:fontFamily="@font/heebo_bold"
                 android:text="Titolo"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"

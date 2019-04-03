@@ -24,7 +24,7 @@
             android:id="@+id/targaTit" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="@+id/titolo"
-            android:fontFamily="@font/allerta" android:textColor="@android:color/background_light"/>
+            android:fontFamily="@font/heebo_bold" android:textColor="@android:color/background_light"/>
     <ImageButton
             android:layout_width="45dp"
             android:layout_height="45dp" app:srcCompat="@mipmap/pic_62"
@@ -49,51 +49,45 @@
             app:layout_constraintEnd_toEndOf="@+id/buttonSave"
             app:layout_constraintHorizontal_bias="0.363"
             app:layout_constraintTop_toTopOf="@+id/buttonSave" android:layout_marginTop="35dp"/>
-    <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp" app:srcCompat="@mipmap/pic_11"
-            android:id="@+id/imageView8"
-            app:layout_constraintTop_toBottomOf="@+id/titolo"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="25dp"/>
     <TextView
-            android:text=" Data intervento"
+            android:text="Data intervento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView18" app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintTop_toBottomOf="@+id/titolo" android:fontFamily="@font/caudex"
-            android:textColor="@color/colorPrimaryDark" android:textSize="20sp" android:layout_marginTop="8dp"/>
+            android:id="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@+id/titolo" android:fontFamily="@font/allerta"
+            android:textColor="@color/colorPrimaryDark" android:textSize="20sp" android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/buttonData"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="datetime"
+            android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editTextData"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintEnd_toEndOf="parent" android:fontFamily="@font/caudex"
-            android:textColor="@color/common_google_signin_btn_text_dark_pressed" android:textSize="24sp"
-            android:layout_marginEnd="8dp" android:background="@color/color2"/>
-    <ImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp" app:srcCompat="@mipmap/pic_26"
-            android:id="@+id/imageView9" android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/editTextData" app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView18"
+            app:layout_constraintEnd_toEndOf="parent" android:fontFamily="@font/heebo_bold"
+            android:textColor="@color/common_google_signin_btn_text_dark_pressed" android:textSize="20sp"
+            android:layout_marginEnd="8dp" android:background="@color/colorAccent"
+            app:layout_constraintStart_toEndOf="@+id/buttonData" android:textCursorDrawable="@drawable/cursor_color"/>
     <TextView
             android:text="Tipo intervento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView19" app:layout_constraintStart_toEndOf="@+id/imageView9"
+            android:id="@+id/textView19"
             app:layout_constraintTop_toBottomOf="@+id/editTextData" android:textSize="20sp"
-            android:fontFamily="@font/caudex" android:textColor="@color/colorPrimaryDark"/>
+            android:fontFamily="@font/allerta" android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintStart_toEndOf="@+id/spinnerTipo"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/editTextTipo"
-            app:layout_constraintTop_toBottomOf="@+id/textView19" app:layout_constraintStart_toEndOf="@+id/imageView9"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:fontFamily="@font/caudex"
-            android:textSize="24sp" android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:background="@color/color2"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/heebo_bold"
+            android:textSize="20sp" android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:background="@color/colorAccent" android:textCursorDrawable="@drawable/cursor_color"
+            app:layout_constraintStart_toEndOf="@+id/spinnerTipo"/>
     <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp" app:srcCompat="@mipmap/pic_61"
@@ -106,7 +100,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView20"
             app:layout_constraintTop_toBottomOf="@+id/editTextTipo" app:layout_constraintStart_toEndOf="@+id/imageView"
-            android:fontFamily="@font/caudex" android:textColor="@color/colorPrimaryDark" android:textSize="20sp"/>
+            android:fontFamily="@font/allerta" android:textColor="@color/colorPrimaryDark" android:textSize="20sp"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -114,9 +108,10 @@
             android:ems="10"
             android:id="@+id/editTextKm"
             app:layout_constraintTop_toBottomOf="@+id/textView20" app:layout_constraintStart_toEndOf="@+id/imageView"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:fontFamily="@font/caudex"
-            android:textSize="24sp" android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:background="@color/color2"/>
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/heebo_bold"
+            android:textSize="20sp" android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:background="@color/colorAccent" android:textCursorDrawable="@drawable/cursor_color"/>
     <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp" app:srcCompat="@mipmap/pic_39"
@@ -129,19 +124,20 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView21"
             app:layout_constraintTop_toBottomOf="@+id/editTextKm" app:layout_constraintStart_toEndOf="@+id/imageView10"
-            android:fontFamily="@font/caudex" android:textSize="20sp" android:textColor="@color/colorPrimaryDark"/>
+            android:fontFamily="@font/allerta" android:textSize="20sp" android:textColor="@color/colorPrimaryDark"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/editTextPrezzo" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/imageView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView21" android:fontFamily="@font/caudex"
-            android:textSize="24sp" android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:background="@color/color2" android:inputType="number"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView21" android:fontFamily="@font/heebo_bold"
+            android:textSize="20sp" android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:background="@color/colorAccent" android:inputType="number"
+            android:textCursorDrawable="@drawable/cursor_color"/>
     <ImageButton
             android:layout_width="45dp"
-            android:layout_height="45dp" app:srcCompat="@mipmap/pic_26"
+            android:layout_height="45dp" app:srcCompat="@mipmap/pic_29"
             android:id="@+id/imageButton2" android:scaleType="fitCenter"
             android:background="@android:color/transparent" android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/editTextPrezzo" app:layout_constraintStart_toStartOf="parent"/>
@@ -151,7 +147,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView22"
             app:layout_constraintStart_toEndOf="@+id/imageButton2"
-            android:textSize="20sp" android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/caudex"
+            android:textSize="20sp" android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta"
             app:layout_constraintTop_toTopOf="@+id/imageButton2"
             app:layout_constraintBottom_toBottomOf="@+id/imageButton2"/>
     <EditText
@@ -161,11 +157,13 @@
             android:ems="10"
             android:id="@+id/editTextDescr" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toEndOf="@+id/imageButton2"
-            android:fontFamily="@font/caudex" android:textSize="20sp"
-            android:textColor="@color/common_google_signin_btn_text_dark_default" android:background="@color/color2"
+            android:fontFamily="@font/heebo_bold" android:textSize="20sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:background="@color/colorAccent"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/buttonControllo"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/imageButton2"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+            android:gravity="top" android:textCursorDrawable="@drawable/cursor_color" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
     <ImageButton
             android:layout_width="0dp"
             android:layout_height="45dp" app:srcCompat="@mipmap/pic_29"
@@ -186,15 +184,14 @@
             android:id="@+id/buttonTagliando" android:scaleType="fitCenter"
             android:background="@drawable/my_button"
             app:layout_constraintStart_toStartOf="@+id/textView25"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView24"
-            app:layout_constraintEnd_toEndOf="@+id/textView25"/>
+            app:layout_constraintEnd_toEndOf="@+id/textView25" android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
             android:text="Preventivo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView23"
-            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/caudex" android:textSize="20sp"
+            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta" android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@+id/buttonPreventivo"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"/>
     <TextView
@@ -202,7 +199,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView24"
-            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/caudex" android:textSize="20sp"
+            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta" android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@+id/buttonControllo"
             app:layout_constraintStart_toStartOf="@+id/textView26" app:layout_constraintEnd_toEndOf="@+id/textView26"/>
     <TextView
@@ -210,17 +207,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView25"
-            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/caudex" android:textSize="20sp"
+            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta" android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
             app:layout_constraintTop_toBottomOf="@+id/buttonTagliando"/>
-    <Spinner
-            android:layout_width="0dp"
-            android:layout_height="28dp"
-            android:id="@+id/spinnerInterv" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/titolo" android:layout_marginStart="80dp"
-            android:layout_marginEnd="80dp" android:layout_marginTop="5dp" android:spinnerMode="dropdown"/>
     <TextView
             android:layout_width="4dp"
             android:layout_height="0dp"
@@ -237,6 +227,42 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/editTextPrezzo" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextDescr"/>
-
-
+    <TextView
+            android:text="Lista ->"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView14" android:fontFamily="@font/allerta"
+            android:textSize="24sp" android:textColor="@color/colorPrimaryDark" android:layout_marginTop="2dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/titolo" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="@+id/titolo"/>
+    <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/number"
+            android:textColor="@color/colorPrimaryDark" android:textSize="18sp" android:fontFamily="@font/allerta"
+            android:gravity="clip_vertical|center_horizontal" android:textAlignment="textStart"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/spinnerInterv" android:layout_marginStart="8dp"/>
+    <Spinner
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/spinnerInterv" app:layout_constraintStart_toEndOf="@+id/textView14"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="4dp"
+            android:background="@mipmap/pic_30" android:spinnerMode="dialog"/>
+    <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp" app:srcCompat="@mipmap/pic_1"
+            android:id="@+id/buttonData" android:scaleType="fitXY"
+            android:background="@android:color/transparent" android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="@+id/textView26" app:layout_constraintStart_toStartOf="parent"
+    />
+    <Spinner
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/spinnerTipo"
+            android:layout_marginTop="10dp" app:layout_constraintTop_toBottomOf="@+id/editTextData"
+            android:background="@mipmap/pic_26" android:spinnerMode="dialog"
+            app:layout_constraintStart_toStartOf="parent"/>
 </android.support.constraint.ConstraintLayout>

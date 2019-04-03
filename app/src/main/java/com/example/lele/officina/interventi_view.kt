@@ -1,18 +1,24 @@
 package com.example.lele.officina
 
-import android.graphics.Color
+import android.app.DatePickerDialog
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.annotation.RequiresApi
+import android.support.v7.app.AlertDialog
+import android.text.Editable
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.view.WindowManager
+import android.widget.*
 import com.example.lele.officina.data.offInterv
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_interventi_view.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import android.widget.ArrayAdapter
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class interventi_view : AppCompatActivity() {
 
@@ -20,35 +26,62 @@ class interventi_view : AppCompatActivity() {
     internal lateinit var saveText: TextView
     internal lateinit var  titolo: TextView
     internal lateinit var targaTit: TextView
+    internal  lateinit var number: TextView
     internal lateinit var editTextData: EditText
     internal lateinit var editTextTipo: EditText
     internal lateinit var editTextkm: EditText
     internal lateinit var editTextPrezzo: EditText
     internal lateinit var editTextDescr: EditText
+    internal lateinit var  spinnetTipo: Spinner
+    var idNameT = ""
+    var idInter = ""
+    var numIns = 0
+    var lista : ArrayList<String> = ArrayList()
+    var listaTipo = arrayOf( "Nessuna Selezione !", "Azzeramento", "Controllo", "Riparazione", "Revisione", "Sostiutuzione", "Tagliando")
+
+
     lateinit var  ref: DatabaseReference
+    lateinit var datiInterventi : MutableList<offInterv>
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interventi_view)
 
+        number = findViewById(R.id.number)
         saveText = findViewById(R.id.textSave)
         targaTit = findViewById(R.id.targaTit)
         titolo = findViewById(R.id.titolo)
+
         editTextData = findViewById(R.id.editTextData)
         editTextTipo = findViewById(R.id.editTextTipo)
         editTextkm = findViewById(R.id.editTextKm)
         editTextPrezzo = findViewById(R.id.editTextPrezzo)
         editTextDescr = findViewById(R.id.editTextDescr)
+        spinnetTipo = findViewById(R.id.spinnerTipo)
 
+
+
+        val buttoDataInterv = findViewById(R.id.buttonData) as ImageButton
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
         val buttonSave = findViewById(R.id.buttonSave) as ImageButton
         val buttonPrev= findViewById(R.id.buttonPreventivo) as ImageButton
         val buttonContr = findViewById(R.id.buttonControllo) as  ImageButton
         val buttonTagl = findViewById(R.id.buttonTagliando) as ImageButton
+        val deleteButtonI = findViewById(R.id.deleteButtonI) as ImageButton
+        var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        var current = LocalDate.now().format(formatter)
+
+        deleteButtonI.setAlpha(.3f)
+        deleteButtonI.isEnabled = false
 
 
         fun disabled(){
 
+
+
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
             buttonSave.setImageResource(R.mipmap.pic_107)
 
             saveText.text = "Nuovo"
@@ -57,27 +90,114 @@ class interventi_view : AppCompatActivity() {
                         editTextkm.isEnabled = false
                             editTextPrezzo.isEnabled = false
                                 editTextDescr.isEnabled = false
+                                    buttoDataInterv.isEnabled = false
+                                        spinnerTipo.isEnabled = false
         }
+        disabled()
 
         fun enabled(){
             buttonSave.setImageResource(R.mipmap.pic_106)
 
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
             saveText.text = "Salva"
                 editTextData.isEnabled = true
-                    editTextTipo.isEnabled = true
-                        editTextkm.isEnabled = true
-                            editTextPrezzo.isEnabled = true
-                                editTextDescr.isEnabled = true
+                   editTextData.text = Editable.Factory.getInstance().newEditable(current.toString().trim())
+                        editTextTipo.isEnabled = true
+                        editTextTipo.requestFocus()
+                            editTextTipo.text = Editable.Factory.getInstance().newEditable("")
+                                editTextkm.isEnabled = true
+                                    editTextkm.text = Editable.Factory.getInstance().newEditable("")
+                                        editTextPrezzo.isEnabled = true
+                                             editTextPrezzo.text = Editable.Factory.getInstance().newEditable("")
+                                                 editTextDescr.isEnabled = true
+                                                    editTextDescr.text = Editable.Factory.getInstance().newEditable("")
+                                                        buttoDataInterv.isEnabled = true
+                                                            spinnetTipo.isEnabled = true
+
         }
 
 
 
-        disabled()
+//pulsante datatIntervento
 
 
-        lateinit var  ref: DatabaseReference
+        var cal = Calendar.getInstance()
+
+        val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            cal.set(Calendar.YEAR, year)
+                cal.set(Calendar.MONTH, monthOfYear)
+                    cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+            val myFormat = "dd/MM/yy" // mention the format you need
+                val sdf = SimpleDateFormat(myFormat, Locale.ITALY)
+                    editTextData.text = Editable.Factory.getInstance().newEditable(sdf.format(cal.time))
+
+
+        }
+
+
+        buttoDataInterv.setOnClickListener {
+            DatePickerDialog(this@interventi_view, dateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
+        }
+
 
         targaTit.text = intent.getStringExtra(".targa")
+        idNameT = intent.getStringExtra(".targa")
+
+        datiInterventi = mutableListOf()
+        ref = FirebaseDatabase.getInstance().getReference("officinaInterventi").child(idNameT)
+
+
+
+        fun load() {
+
+            ref.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+
+
+                    Toast.makeText(applicationContext,"${lista.count()}",Toast.LENGTH_SHORT).show()
+
+
+                    if(p0.exists()){
+
+                        for(h in p0.children){
+                            val dat = h.getValue(offInterv::class.java)
+                            datiInterventi.add(dat!!)
+
+                        }
+
+                        lista.add("Nessuna Selezione !")
+
+                        for(n in datiInterventi.indices){
+                            lista.add(datiInterventi[n].idName)
+                        }
+
+
+                        caricato()
+                            carcicatoTipo()
+
+
+                    }
+                }
+
+            })
+
+        }
+
+        load()
+
+
+
+
+
+
 
 
 
@@ -86,6 +206,61 @@ class interventi_view : AppCompatActivity() {
                 finish()
             }
         })
+
+
+        //Pulsante rimuovi Intervento
+        deleteButtonI.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+
+
+                val builder = AlertDialog.Builder(this@interventi_view)
+                     builder.setTitle("Attenzione !!")
+                         builder.setMessage("Eliminare l'intervento :  $idInter !!")
+
+                builder.setPositiveButton("Elimina"){dialog, which ->
+                    // Do something when user press the positive button
+                    ref.child(idInter).removeValue()
+
+                    Toast.makeText(applicationContext,"Intervento :  $idInter Eliminato ! ",Toast.LENGTH_SHORT).show()
+                        lista = arrayListOf()
+                            datiInterventi = mutableListOf()
+
+                    deleteButtonI.setAlpha(.3f)
+                        deleteButtonI.isEnabled = false
+
+                    editTextData.text = Editable.Factory.getInstance().newEditable("")
+                        editTextTipo.text = Editable.Factory.getInstance().newEditable("")
+                             editTextkm.text = Editable.Factory.getInstance().newEditable("")
+                                 editTextPrezzo.text = Editable.Factory.getInstance().newEditable("")
+                                     editTextDescr.text = Editable.Factory.getInstance().newEditable("")
+
+
+                                if (number.text == "1"){
+                                    finish()
+                                }
+
+
+
+                }
+
+                // Display a neutral button on alert dialog
+                builder.setNeutralButton("Annulla"){_,_ ->
+
+                }
+
+                // Finally, make the alert dialog using builder
+                val dialog: AlertDialog = builder.create()
+
+                // Display the alert dialog on app interface
+                dialog.show()
+
+
+
+
+            }
+        })
+
+
 
 
         //Esegue il salvataggio dei dati cliente
@@ -104,7 +279,7 @@ class interventi_view : AppCompatActivity() {
                     //Salva
 
                     var stringC = editTextData.text.toString().trim()
-                    var stringD = editTextkm.text.toString().trim()
+                         var stringD = editTextkm.text.toString().trim()
 
 
                     if (stringC == "" )  {
@@ -118,6 +293,8 @@ class interventi_view : AppCompatActivity() {
                     }else{
 
                         //Salvataggio eseguito
+
+
 
                         saveMode()
                             disabled()
@@ -133,25 +310,151 @@ class interventi_view : AppCompatActivity() {
             }
         })
 
+
+
+
+
+
+    }
+
+    //Carica lista tipo interventi
+
+    private fun carcicatoTipo(){
+
+
+        var adapter = ArrayAdapter(
+            this, // Context
+            android.R.layout.simple_spinner_item, // Layout
+            listaTipo // Array
+        )
+        adapter.setDropDownViewResource(android.R.layout.select_dialog_item)
+
+
+        spinnerTipo.adapter = adapter
+
+        spinnerTipo.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent:AdapterView<*>, view: View, position: Int, id: Long){
+                // Display the selected item text on text view
+
+
+                    if (listaTipo[position] == "Nessuna Selezione !"){
+
+
+
+                    }else {
+
+
+
+                        editTextTipo.text = Editable.Factory.getInstance().newEditable(listaTipo[position])
+
+
+
+                    }
+
+
+
+
+
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>){
+                // Another interface callback
+
+            }
+        }
+
+
+
+    }
+
+
+
+
+//Carica lista interventi
+    private fun caricato (){
+
+        number.text = datiInterventi.count().toString()
+
+        var adapter = ArrayAdapter(
+            this, // Context
+            android.R.layout.simple_spinner_item, // Layout
+            lista // Array
+        )
+        adapter.setDropDownViewResource(android.R.layout.select_dialog_item)
+
+
+            spinnerInterv.adapter = adapter
+
+        spinnerInterv.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent:AdapterView<*>, view: View, position: Int, id: Long){
+                // Display the selected item text on text view
+
+                if(numIns == 0){
+
+                    numIns = 2
+
+                }else if (numIns == 1 ){
+
+                }else {
+
+                    if (lista[position] == "Nessuna Selezione !"){
+
+                    }else {
+
+                        deleteButtonI.setAlpha(1.0f)
+                            deleteButtonI.isEnabled = true
+
+
+                        idInter = datiInterventi[position - 1].idName
+                            editTextData.text = Editable.Factory.getInstance().newEditable(datiInterventi[position - 1].data)
+                                editTextTipo.text = Editable.Factory.getInstance().newEditable(datiInterventi[position - 1].tipo)
+                                    editTextkm.text = Editable.Factory.getInstance().newEditable(datiInterventi[position - 1].km)
+                                        editTextPrezzo.text = Editable.Factory.getInstance().newEditable(datiInterventi[position - 1].prezzo)
+                                            editTextDescr.text = Editable.Factory.getInstance().newEditable(datiInterventi[position - 1].descr)
+
+                    }
+
+
+                }
+
+
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>){
+                // Another interface callback
+
+            }
+        }
+
+
     }
 
     private fun saveMode(){
         var idInter = editTextData.text.toString() + " " + editTextTipo.text.toString()
-        val idName = targaTit.text.toString().trim()
-        ref = FirebaseDatabase.getInstance().getReference("officinaInterventi").child(idName)
+        idNameT = targaTit.text.toString().trim()
+        ref = FirebaseDatabase.getInstance().getReference("officinaInterventi").child(idNameT)
 
         val offInterv = offInterv(
             idInter,
-            editTextData.toString().trim(),
+            editTextData.text.toString().trim(),
             editTextTipo.text.toString().trim(),
             editTextkm.text.toString().trim(),
             editTextPrezzo.text.toString().trim(),
             editTextDescr.text.toString().trim()
         )
 
+
+
         ref.child(idInter).setValue(offInterv).addOnCompleteListener {
-            Toast.makeText(applicationContext, "Salvataggio avvenuto con successo!", Toast.LENGTH_LONG)
+
+
         }
+
+            lista = arrayListOf()
+                datiInterventi = mutableListOf()
+
 
     }
 
