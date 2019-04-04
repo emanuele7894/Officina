@@ -16,7 +16,7 @@ class offiListAdapter(val mCtx: Context, val layoutResId: Int, val listOff: List
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
         val view: View = layoutInflater.inflate(layoutResId, null)
-        val textName = view.findViewById<TextView>(R.id.titoloO1)
+        val textName = view.findViewById<TextView>(R.id.TitoloPreventivo)
         val itemText = view.findViewById<TextView>(R.id.itemO)
         val targaName = view.findViewById<TextView>(R.id.targaItem)
         val dat = listOff[position]

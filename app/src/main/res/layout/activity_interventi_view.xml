@@ -35,7 +35,7 @@
             android:src="@mipmap/pic_107"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:id="@+id/buttonSave" android:scaleType="fitXY"
+            android:id="@+id/mailButton" android:scaleType="fitXY"
             android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="10dp" android:layout_marginTop="20dp"/>
@@ -45,10 +45,10 @@
             android:layout_height="0dp"
             android:id="@+id/textSave"
             android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintStart_toStartOf="@+id/buttonSave"
-            app:layout_constraintEnd_toEndOf="@+id/buttonSave"
+            app:layout_constraintStart_toStartOf="@+id/mailButton"
+            app:layout_constraintEnd_toEndOf="@+id/mailButton"
             app:layout_constraintHorizontal_bias="0.363"
-            app:layout_constraintTop_toTopOf="@+id/buttonSave" android:layout_marginTop="35dp"/>
+            app:layout_constraintTop_toTopOf="@+id/mailButton" android:layout_marginTop="35dp"/>
     <TextView
             android:text="Data intervento"
             android:layout_width="wrap_content"

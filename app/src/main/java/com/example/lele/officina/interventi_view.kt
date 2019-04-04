@@ -2,6 +2,7 @@ package com.example.lele.officina
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +10,6 @@ import android.support.annotation.RequiresApi
 import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.view.View
-import android.view.WindowManager
 import android.widget.*
 import com.example.lele.officina.data.offInterv
 import com.google.firebase.database.*
@@ -20,10 +20,6 @@ import android.widget.ArrayAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 import android.widget.EditText
-import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
-import com.google.android.gms.common.util.InputMethodUtils.showSoftInput
-import android.content.Context.INPUT_METHOD_SERVICE
-import android.support.v4.content.ContextCompat.getSystemService
 import android.view.inputmethod.InputMethodManager
 
 
@@ -56,6 +52,9 @@ class interventi_view : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interventi_view)
 
+        var k: Intent = Intent(this@interventi_view, Preventivo::class.java)
+
+
         number = findViewById(R.id.number)
         saveText = findViewById(R.id.textSave)
         targaTit = findViewById(R.id.targaTit)
@@ -72,7 +71,7 @@ class interventi_view : AppCompatActivity() {
 
         val buttoDataInterv = findViewById(R.id.buttonData) as ImageButton
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
-        val buttonSave = findViewById(R.id.buttonSave) as ImageButton
+        val buttonSave = findViewById(R.id.mailButton) as ImageButton
         val buttonPrev= findViewById(R.id.buttonPreventivo) as ImageButton
         val buttonContr = findViewById(R.id.buttonControllo) as  ImageButton
         val buttonTagl = findViewById(R.id.buttonTagliando) as ImageButton
@@ -194,7 +193,6 @@ class interventi_view : AppCompatActivity() {
                 override fun onDataChange(p0: DataSnapshot) {
 
 
-                    Toast.makeText(applicationContext,"${lista.count()}",Toast.LENGTH_SHORT).show()
 
 
                     if(p0.exists()){
@@ -238,6 +236,15 @@ class interventi_view : AppCompatActivity() {
                 finish()
             }
         })
+
+        //Pulsante Preventivo
+        buttonPrev.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                k.putExtra(".targa", targaTit.text.toString())
+                startActivity(k)
+            }
+        })
+
 
 
         //Pulsante rimuovi Intervento

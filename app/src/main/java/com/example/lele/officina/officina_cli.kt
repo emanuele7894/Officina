@@ -53,7 +53,7 @@ class officina_cli : AppCompatActivity() {
         var k: Intent = Intent(this@officina_cli, interventi_view::class.java)
 
         numeroCli = findViewById(R.id.numeroCliente)
-        titolo = findViewById(R.id.titoloO1)
+        titolo = findViewById(R.id.TitoloPreventivo)
         targaTit = findViewById(R.id.targaTit)
         textSave = findViewById(R.id.textSave)
         nome_cognome = findViewById(R.id.editTextNC)
@@ -64,11 +64,11 @@ class officina_cli : AppCompatActivity() {
         note = findViewById(R.id.editTextNote)
 
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
-        val buttonSave = findViewById(R.id.buttonSave) as ImageButton
+        val buttonSave = findViewById(R.id.mailButton) as ImageButton
         val buttonInterv = findViewById(R.id.buttonInterv) as ImageButton
         val buttonTel = findViewById(R.id.buttonTel) as ImageButton
         val buttonMail = findViewById(R.id.buttonMail) as ImageButton
-        val deleteButton = findViewById(R.id.deleteButton) as ImageButton
+        val deleteButton = findViewById(R.id.printButton) as ImageButton
 
         val dataRev = findViewById(R.id.buttonDataRev) as Button
         val dataTagl = findViewById(R.id.buttonTagl) as Button
@@ -434,6 +434,8 @@ class officina_cli : AppCompatActivity() {
 
                                     saveMode()
                                         disabled()
+                        titolo.text = editTextNC.text.toString()
+                            targaTit.text = editTextTarga.text.toString()
 
                         deleteButton.setAlpha(1.0f)
                             deleteButton.isEnabled = true

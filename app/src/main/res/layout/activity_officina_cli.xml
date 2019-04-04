@@ -18,35 +18,35 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/numeroCliente" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="@+id/titoloO1"
+            app:layout_constraintTop_toTopOf="@+id/TitoloPreventivo"
             android:textColor="@color/colorPrimaryDark" app:layout_constraintStart_toEndOf="@+id/buttonBack"
             android:layout_marginStart="4dp" android:layout_marginEnd="4dp"
-            app:layout_constraintEnd_toEndOf="@+id/titoloO1" android:textAlignment="center"/>
+            app:layout_constraintEnd_toEndOf="@+id/TitoloPreventivo" android:textAlignment="center"/>
     <TextView
             android:text="Nome"
             android:layout_width="0dp"
             android:layout_height="90dp"
-            android:id="@+id/titoloO1"
+            android:id="@+id/TitoloPreventivo"
             app:layout_constraintTop_toTopOf="parent" android:gravity="center"
             android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta" android:textSize="24sp"
             android:textAlignment="center"
             app:layout_constraintStart_toEndOf="@+id/buttonBack" android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp" app:layout_constraintEnd_toStartOf="@+id/deleteButton"/>
+            android:layout_marginEnd="4dp" app:layout_constraintEnd_toStartOf="@+id/printButton"/>
     <TextView
             android:text="Targa"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/targaTit" android:layout_marginBottom="6dp"
-            app:layout_constraintBottom_toBottomOf="@+id/titoloO1"
+            app:layout_constraintBottom_toBottomOf="@+id/TitoloPreventivo"
             android:fontFamily="@font/heebo_bold" android:textColor="@android:color/background_light"
             app:layout_constraintStart_toEndOf="@+id/buttonBack" android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp" app:layout_constraintEnd_toEndOf="@+id/titoloO1"
+            android:layout_marginEnd="4dp" app:layout_constraintEnd_toEndOf="@+id/TitoloPreventivo"
             android:textAlignment="center"/>
     <ImageButton
             android:src="@mipmap/pic_106"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:id="@+id/buttonSave" android:scaleType="fitXY"
+            android:id="@+id/mailButton" android:scaleType="fitXY"
             android:background="@android:color/transparent"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="22dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
@@ -56,23 +56,23 @@
             android:layout_height="45dp"
             android:id="@+id/buttonBack" android:scaleType="fitXY"
             android:background="@android:color/transparent"
-            app:layout_constraintTop_toTopOf="@+id/titoloO1" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/TitoloPreventivo" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="@+id/imageView4" android:layout_marginTop="22dp"/>
     <ImageButton
             android:src="@mipmap/pic_111"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:id="@+id/deleteButton" android:scaleType="fitXY"
+            android:id="@+id/printButton" android:scaleType="fitXY"
             android:background="@android:color/transparent"
             android:layout_marginTop="22dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/buttonSave"/>
+            app:layout_constraintEnd_toStartOf="@+id/mailButton"/>
     <TextView
             android:text="Nome e Cognome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/titoloO1"
+            app:layout_constraintTop_toBottomOf="@+id/TitoloPreventivo"
             android:textColor="@color/colorPrimaryDark" android:textSize="18sp"
             android:textAlignment="textStart" android:fontFamily="@font/allerta"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -128,10 +128,10 @@
             android:layout_height="0dp"
             android:id="@+id/textSave"
             android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintStart_toStartOf="@+id/buttonSave"
-            app:layout_constraintEnd_toEndOf="@+id/buttonSave"
+            app:layout_constraintStart_toStartOf="@+id/mailButton"
+            app:layout_constraintEnd_toEndOf="@+id/mailButton"
             app:layout_constraintHorizontal_bias="0.363"
-            android:layout_marginTop="35dp" app:layout_constraintTop_toTopOf="@+id/buttonSave"/>
+            android:layout_marginTop="35dp" app:layout_constraintTop_toTopOf="@+id/mailButton"/>
     <ImageView
             android:src="@mipmap/pic_6"
             android:layout_width="45dp"
@@ -265,7 +265,7 @@
             android:layout_height="0dp"
             android:id="@+id/textView17" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/titoloO1"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/TitoloPreventivo"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="invisible"/>
     <ImageButton
