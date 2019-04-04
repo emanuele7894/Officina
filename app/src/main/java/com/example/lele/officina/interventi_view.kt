@@ -1,6 +1,7 @@
 package com.example.lele.officina
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,8 +20,11 @@ import android.widget.ArrayAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 import android.widget.EditText
-
-
+import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
+import com.google.android.gms.common.util.InputMethodUtils.showSoftInput
+import android.content.Context.INPUT_METHOD_SERVICE
+import android.support.v4.content.ContextCompat.getSystemService
+import android.view.inputmethod.InputMethodManager
 
 
 class interventi_view : AppCompatActivity() {
@@ -84,7 +88,6 @@ class interventi_view : AppCompatActivity() {
 
 
 
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
             buttonSave.setImageResource(R.mipmap.pic_107)
 
             saveText.text = "Nuovo"
@@ -101,7 +104,6 @@ class interventi_view : AppCompatActivity() {
         fun enabled(){
             buttonSave.setImageResource(R.mipmap.pic_106)
 
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
             saveText.text = "Salva"
                 editTextData.isEnabled = true
                    editTextData.text = Editable.Factory.getInstance().newEditable(current.toString().trim())
@@ -304,6 +306,7 @@ class interventi_view : AppCompatActivity() {
 
                     enabled()
                         editSave = true
+                    showSoftKeyboard(editTextTipo)
 
                 }else {
                     //Salva
@@ -377,6 +380,7 @@ class interventi_view : AppCompatActivity() {
 
                         editTextTipo.text = Editable.Factory.getInstance().newEditable(listaTipo[position])
 
+                        showSoftKeyboard(editTextkm)
 
 
                     }
@@ -387,6 +391,9 @@ class interventi_view : AppCompatActivity() {
 
 
             }
+
+
+
 
             override fun onNothingSelected(parent: AdapterView<*>){
                 // Another interface callback
@@ -399,7 +406,12 @@ class interventi_view : AppCompatActivity() {
     }
 
 
-
+    private fun showSoftKeyboard(view: View) {
+        if (view.requestFocus()) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+        }
+    }
 
 //Carica lista interventi
     private fun caricato (){

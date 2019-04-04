@@ -87,10 +87,15 @@ class officina_cli : AppCompatActivity() {
 
         var nomeTitolo =  intent.getStringExtra(".nomeid")
 
-
+        fun showSoftKeyboard(view: View) {
+            if (view.requestFocus()) {
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+            }
+        }
 
         fun disabled(){
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+
             buttonSave.setImageResource(R.mipmap.pic_107)
             textSave.text = "Edita"
             nome_cognome.isEnabled = false
@@ -118,7 +123,12 @@ class officina_cli : AppCompatActivity() {
             dataTagl.isEnabled = true
             checkBoxRev.isEnabled = true
             checkBoxTagl.isEnabled = true
+
+
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+
+            showSoftKeyboard(editTextNC)
+
         }
 
       
@@ -137,13 +147,13 @@ class officina_cli : AppCompatActivity() {
             buttonMail.setAlpha(.3f)
                 buttonMail.isEnabled = false
 
-                    nome_cognome.requestFocus()
                 enabled()
                     numeroCli.text = "Cliente N° : " + intent.getStringExtra(".numec")
                         titolo.text = "Nuovo cliente"
                             targaTit.text = "-------"
                                 editSave = true
                                     stringaCaricata = "Nuovo"
+
 
 
 
@@ -385,7 +395,7 @@ class officina_cli : AppCompatActivity() {
 
                     enabled()
                         editSave = true
-                            telefono.requestFocus()
+                    //showSoftKeyboard(editTextNC)
 
 
                 }else {
