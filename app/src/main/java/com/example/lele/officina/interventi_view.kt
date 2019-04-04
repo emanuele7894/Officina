@@ -53,6 +53,8 @@ class interventi_view : AppCompatActivity() {
         setContentView(R.layout.activity_interventi_view)
 
         var k: Intent = Intent(this@interventi_view, Preventivo::class.java)
+        var k1: Intent = Intent(this@interventi_view, Controllo::class.java)
+        var k2: Intent = Intent(this@interventi_view, Tagliando::class.java)
 
 
         number = findViewById(R.id.number)
@@ -185,6 +187,9 @@ class interventi_view : AppCompatActivity() {
 
         fun load() {
 
+
+            carcicatoTipo()
+
             ref.addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -211,7 +216,7 @@ class interventi_view : AppCompatActivity() {
 
 
                         caricato()
-                            carcicatoTipo()
+
 
 
                     }
@@ -245,6 +250,22 @@ class interventi_view : AppCompatActivity() {
             }
         })
 
+        //Pulsante Controllo
+        buttonContr.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                k1.putExtra(".targa", targaTit.text.toString())
+                startActivity(k1)
+            }
+        })
+
+
+        //Pulsante Tagliando
+        buttonTagl.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                k2.putExtra(".targa", targaTit.text.toString())
+                startActivity(k2)
+            }
+        })
 
 
         //Pulsante rimuovi Intervento
