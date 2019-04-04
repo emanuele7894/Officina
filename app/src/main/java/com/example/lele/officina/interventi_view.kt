@@ -18,6 +18,9 @@ import java.time.format.DateTimeFormatter
 import android.widget.ArrayAdapter
 import java.text.SimpleDateFormat
 import java.util.*
+import android.widget.EditText
+
+
 
 
 class interventi_view : AppCompatActivity() {
@@ -134,6 +137,33 @@ class interventi_view : AppCompatActivity() {
 
 
         }
+
+        editTextkm.setOnFocusChangeListener(View.OnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+
+                val string = editTextkm.text.toString()
+                    editTextkm.text = Editable.Factory.getInstance().newEditable("$string km")
+
+            }else {
+
+                editTextkm.text = Editable.Factory.getInstance().newEditable("")
+
+            }
+        })
+
+
+        editTextPrezzo.setOnFocusChangeListener(View.OnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+
+                val string = editTextPrezzo.text.toString()
+                    editTextPrezzo.text = Editable.Factory.getInstance().newEditable("$string €")
+
+            }else {
+
+                editTextPrezzo.text = Editable.Factory.getInstance().newEditable("")
+
+            }
+        })
 
 
         buttoDataInterv.setOnClickListener {

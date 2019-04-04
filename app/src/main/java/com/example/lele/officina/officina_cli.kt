@@ -304,6 +304,34 @@ class officina_cli : AppCompatActivity() {
         buttonTel.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
 
+                val builder = AlertDialog.Builder(this@officina_cli)
+                builder.setTitle("Comunica con il cliente !")
+                builder.setMessage("Vuoi effettuare una chiamate o inviare un messaggio ?  al numero di telefono :  ${telefono.text} !!")
+
+                builder.setPositiveButton("Chiama"){dialog, which ->
+                    // Do something when user press the positive button
+
+
+
+                }
+
+                builder.setNegativeButton("Messaggio "){dialog, wich ->
+
+
+
+                }
+
+                // Display a neutral button on alert dialog
+                builder.setNeutralButton("Annulla"){_,_ ->
+
+                }
+
+                // Finally, make the alert dialog using builder
+                val dialog: AlertDialog = builder.create()
+
+                // Display the alert dialog on app interface
+                dialog.show()
+
 
             }
         })
@@ -311,6 +339,31 @@ class officina_cli : AppCompatActivity() {
         //pulsante invio mail
         buttonMail.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
+
+
+                val builder = AlertDialog.Builder(this@officina_cli)
+                builder.setTitle("Comunica con il cliente !")
+                builder.setMessage("Invia una mail tramite la tua app di posta alla mail  :  ${mail.text} !!")
+
+                builder.setPositiveButton("Invia"){dialog, which ->
+                    // Do something when user press the positive button
+
+
+
+                }
+
+
+                // Display a neutral button on alert dialog
+                builder.setNeutralButton("Annulla"){_,_ ->
+
+                }
+
+                // Finally, make the alert dialog using builder
+                val dialog: AlertDialog = builder.create()
+
+                // Display the alert dialog on app interface
+                dialog.show()
+
 
 
             }
