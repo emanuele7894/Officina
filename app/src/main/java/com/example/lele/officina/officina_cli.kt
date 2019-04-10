@@ -538,7 +538,10 @@ class officina_cli : AppCompatActivity() {
                     }else {
 
                         k.putExtra(".targa", targa.text.toString())
-                            startActivity(k)
+                            k.putExtra(".nomeCognome", nome_cognome.text.toString())
+                                k.putExtra(".marca", marca_modello.text.toString())
+
+                        startActivity(k)
 
                     }
 

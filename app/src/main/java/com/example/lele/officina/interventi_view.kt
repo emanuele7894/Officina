@@ -38,6 +38,8 @@ class interventi_view : AppCompatActivity() {
     internal lateinit var  spinnetTipo: Spinner
     var idNameT = ""
     var idInter = ""
+    var nomeCognome = ""
+    var marcaModello = ""
     var numIns = 0
     var lista : ArrayList<String> = ArrayList()
     var listaTipo = arrayOf( "Nessuna Selezione !", "Azzeramento", "Controllo", "Riparazione", "Revisione", "Sostiutuzione", "Tagliando")
@@ -178,6 +180,10 @@ class interventi_view : AppCompatActivity() {
 
 
         targaTit.text = intent.getStringExtra(".targa")
+            nomeCognome = intent.getStringExtra(".nomeCognome")
+                 marcaModello = intent.getStringExtra(".marca")
+
+
         idNameT = intent.getStringExtra(".targa")
 
         datiInterventi = mutableListOf()
@@ -246,6 +252,8 @@ class interventi_view : AppCompatActivity() {
         buttonPrev.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 k.putExtra(".targa", targaTit.text.toString())
+                    k.putExtra(".nomeCognome", nomeCognome)
+                        k.putExtra(".marca", marcaModello)
                 startActivity(k)
             }
         })
@@ -254,6 +262,8 @@ class interventi_view : AppCompatActivity() {
         buttonContr.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 k1.putExtra(".targa", targaTit.text.toString())
+                    k1.putExtra(".nomeCognome", nomeCognome)
+                        k1.putExtra(".marca", marcaModello)
                 startActivity(k1)
             }
         })
@@ -263,6 +273,8 @@ class interventi_view : AppCompatActivity() {
         buttonTagl.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 k2.putExtra(".targa", targaTit.text.toString())
+                    k2.putExtra(".nomeCognome", nomeCognome)
+                        k2.putExtra(".marca", marcaModello)
                 startActivity(k2)
             }
         })
