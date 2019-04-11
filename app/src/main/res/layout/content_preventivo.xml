@@ -7,7 +7,7 @@
 
     <ImageView
             android:layout_width="0dp"
-            android:layout_height="783dp" app:srcCompat="@android:drawable/editbox_dropdown_light_frame"
+            android:layout_height="743dp" app:srcCompat="@android:drawable/editbox_dropdown_light_frame"
             android:id="@+id/imageView11"
             android:scaleType="fitXY" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -210,7 +210,7 @@
             android:textAlignment="center" android:gravity="center"
             app:layout_constraintEnd_toEndOf="@+id/textView40"/>
     <TextView
-            android:text="COSTO"
+            android:text="COSTO €"
             android:layout_width="0dp"
             android:layout_height="26dp"
             android:id="@+id/textView36" android:layout_marginTop="30dp"
@@ -231,7 +231,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc1"
             app:layout_constraintTop_toBottomOf="@+id/textView35" android:layout_marginStart="10dp"
@@ -241,7 +241,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz1"
             android:background="@drawable/border_text2"
@@ -255,7 +255,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc2"
             android:layout_marginStart="11dp"
@@ -269,7 +269,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz2"
             android:background="@drawable/border_text2"
@@ -284,7 +284,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc3"
             android:layout_marginStart="9dp"
@@ -297,7 +297,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz3"
             android:background="@drawable/border_text2"
@@ -312,7 +312,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc4"
             android:layout_marginStart="11dp"
@@ -325,7 +325,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz4"
             android:background="@drawable/border_text2"
@@ -340,7 +340,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc5"
             android:layout_marginStart="9dp"
@@ -353,7 +353,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz5"
             android:background="@drawable/border_text2"
@@ -368,7 +368,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc6"
             app:layout_constraintStart_toStartOf="@+id/imageView11"
@@ -380,7 +380,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz6"
             android:background="@drawable/border_text2"
@@ -395,7 +395,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc7"
             android:layout_marginStart="9dp"
@@ -408,7 +408,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz7"
             android:background="@drawable/border_text2"
@@ -423,7 +423,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc8"
             android:layout_marginStart="11dp"
@@ -436,7 +436,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz8"
             android:background="@drawable/border_text2"
@@ -451,7 +451,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc9"
             android:layout_marginStart="9dp"
@@ -464,7 +464,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz9"
             android:background="@drawable/border_text2"
@@ -479,7 +479,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textAutoCorrect|textPersonName|textCapCharacters"
             android:ems="10"
             android:id="@+id/desc10"
             android:layout_marginStart="11dp"
@@ -492,7 +492,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="textShortMessage|number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz10"
             android:background="@drawable/border_text2"
@@ -519,7 +519,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="text|numberDecimal|textEmailAddress|textCapWords|phone"
             android:ems="10"
             android:id="@+id/editTextPz11"
             android:background="@drawable/border_text2"
@@ -546,7 +546,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz12"
             android:background="@drawable/border_text2"
@@ -557,7 +557,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz11"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz11" android:enabled="false"/>
     <TextView
             android:text="IVA"
             android:layout_width="0dp"
@@ -573,7 +573,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz13"
             android:background="@drawable/border_text2"
@@ -584,7 +584,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz12"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz12" android:enabled="false"/>
     <TextView
             android:text="TOTALE"
             android:layout_width="0dp"
@@ -600,7 +600,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="number|textPersonName"
             android:ems="10"
             android:id="@+id/editTextPz14"
             android:background="@drawable/border_text2"
@@ -611,7 +611,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz13"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz13" android:enabled="false"/>
     <TextView
             android:text="NOTE"
             android:layout_width="0dp"
@@ -625,7 +625,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:inputType="textMultiLine"
+            android:inputType="textMultiLine|textCapWords|textCapCharacters"
             android:ems="10"
             android:id="@+id/editText2"
             app:layout_constraintTop_toBottomOf="@+id/textView43"

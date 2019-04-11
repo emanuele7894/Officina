@@ -19,6 +19,8 @@ class Preventivo : AppCompatActivity() {
 
     var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
     var current = LocalDate.now().format(formatter)
+    var conto1 = 0
+    var conto2 = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,16 +50,46 @@ class Preventivo : AppCompatActivity() {
         }
 
 
+
+
         textViewData.text =  Editable.Factory.getInstance().newEditable(current.toString().trim())
+
+
+
+        fun contoTot1(){
+
+
+
+
+            conto1 = editTextPz1.text.toString().toInt() + editTextPz2.text.toString().toInt()
+                editTextPz14.text  = Editable.Factory.getInstance().newEditable(conto1.toString())
+
+        }
+
 
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
 
+        editTextPz2.setOnFocusChangeListener(View.OnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+
+                contoTot1()
+
+
+            }else {
+
+
+
+            }
+        })
 
         buttonBack.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 finish()
             }
         })
+
+
+
 
 
 

@@ -149,6 +149,8 @@ class interventi_view : AppCompatActivity() {
                 val string = editTextkm.text.toString()
                     editTextkm.text = Editable.Factory.getInstance().newEditable("$string km")
 
+
+
             }else {
 
                 editTextkm.text = Editable.Factory.getInstance().newEditable("")
