@@ -241,7 +241,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textShortMessage|number|textPersonName"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/editTextPz1"
             android:background="@drawable/border_text2"
@@ -251,7 +251,8 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintTop_toBottomOf="@+id/textView36"
-            app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"/>
+            app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
+            app:layout_constraintHorizontal_bias="0.6" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -280,7 +281,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz1"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz1" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -308,7 +309,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz2"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz2" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -336,7 +337,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz3"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz3" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -364,7 +365,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz4"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz4" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -391,7 +392,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz5"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz5" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -419,7 +420,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz6"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz6" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -447,7 +448,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz7"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz7" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -475,7 +476,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz8"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz8" android:text="0.00"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
@@ -503,7 +504,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz9"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz9" android:text="0.00"/>
     <TextView
             android:text="LAVORO MANODOPERA "
             android:layout_width="0dp"
@@ -530,9 +531,10 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            android:layout_marginTop="17dp" app:layout_constraintTop_toBottomOf="@+id/editTextPz10"/>
+            android:layout_marginTop="17dp" app:layout_constraintTop_toBottomOf="@+id/editTextPz10"
+            android:text="0.00"/>
     <TextView
-            android:text="PREZZO UNITARIO"
+            android:text="IVA ESCLUSA"
             android:layout_width="0dp"
             android:layout_height="26dp"
             android:id="@+id/textView50"
@@ -557,7 +559,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz11" android:enabled="false"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz11" android:enabled="false" android:text="0.00"/>
     <TextView
             android:text="IVA"
             android:layout_width="0dp"
@@ -584,7 +586,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz12" android:enabled="false"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz12" android:enabled="false" android:text="0.00"/>
     <TextView
             android:text="TOTALE"
             android:layout_width="0dp"
@@ -611,7 +613,7 @@
             app:layout_constraintEnd_toEndOf="@+id/imageView11"
             app:layout_constraintStart_toStartOf="@+id/textView40" android:layout_marginStart="2dp"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPz13" android:enabled="false"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextPz13" android:enabled="false" android:text="0.00"/>
     <TextView
             android:text="NOTE"
             android:layout_width="0dp"
