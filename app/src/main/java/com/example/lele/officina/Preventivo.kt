@@ -98,9 +98,15 @@ class Preventivo : AppCompatActivity() {
 
 
                     contoTot1()
-                    //    val number = editTextPz1.text.toString().toBigDecimal()
-                      //      val formatted = String.format("%.2f", number)
-                        //        editTextPz1.text =  Editable.Factory.getInstance().newEditable(formatted)
+                        val string = editTextPz1.text.toString()
+
+                            if (string.contains(".", ignoreCase = true) == false){
+
+                                val stringaA = "${editTextPz1.text.toString()}.00"
+                                    editTextPz1.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                            }
+
 
 
                 }
@@ -135,6 +141,14 @@ class Preventivo : AppCompatActivity() {
 
 
                     contoTot1()
+                    val string = editTextPz2.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz2.text.toString()}.00"
+                            editTextPz2.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
 
 
@@ -165,6 +179,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz3.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz3.text.toString()}.00"
+                             editTextPz3.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
@@ -193,6 +215,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz4.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz4.text.toString()}.00"
+                            editTextPz4.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
@@ -219,6 +249,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz5.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz5.text.toString()}.00"
+                            editTextPz5.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
@@ -247,6 +285,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz6.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz6.text.toString()}.00"
+                            editTextPz6.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
@@ -275,6 +321,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz7.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz7.text.toString()}.00"
+                            editTextPz7.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
@@ -301,6 +355,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz8.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz8.text.toString()}.00"
+                            editTextPz8.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
@@ -328,6 +390,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz9.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz9.text.toString()}.00"
+                            editTextPz9.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
@@ -354,6 +424,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz10.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz10.text.toString()}.00"
+                            editTextPz10.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
@@ -381,6 +459,14 @@ class Preventivo : AppCompatActivity() {
                 }else {
 
                     contoTot1()
+                    val string = editTextPz11.text.toString()
+
+                    if (string.contains(".", ignoreCase = true) == false){
+
+                        val stringaA = "${editTextPz11.text.toString()}.00"
+                            editTextPz11.text =  Editable.Factory.getInstance().newEditable(stringaA)
+
+                    }
 
                 }
 
