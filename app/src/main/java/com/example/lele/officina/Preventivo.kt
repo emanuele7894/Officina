@@ -1,13 +1,18 @@
 package com.example.lele.officina
 
 import android.app.DatePickerDialog
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.text.Editable
 import android.view.View
 import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_preventivo.*
 import kotlinx.android.synthetic.main.content_preventivo.*
+import java.io.File
+import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -84,6 +89,20 @@ class Preventivo : AppCompatActivity() {
         }
 
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
+            val buttonPrint = findViewById(R.id.buttonPrint) as ImageButton
+
+        //val bitmap = loadBitmapFromView(findViewById(R.id.buttonPrint), 350, 450)
+
+        buttonPrint.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+          //      saveImage(bitmap)
+
+
+            }
+        })
+
+
+
 
 
 
@@ -499,5 +518,39 @@ class Preventivo : AppCompatActivity() {
 
 
 
+    }
+
+    companion object {
+
+        fun saveImage(bitmap: Bitmap) {
+            val root = Environment.getExternalStorageDirectory().toString()
+            val myDir = File(root + "/req_images")
+            myDir.mkdirs()
+            val generator = Random()
+            var n = 10000
+            n = generator.nextInt(n)
+            val fname = "Image-$n.jpg"
+            val file = File(myDir, fname)
+            //  Log.i(TAG, "" + file);
+            if (file.exists())
+                file.delete()
+            try {
+                val out = FileOutputStream(file)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
+                out.flush()
+                out.close()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+        }
+
+        fun loadBitmapFromView(v: View, width: Int, height: Int): Bitmap {
+            val b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+            val c = Canvas(b)
+            v.layout(0, 0, v.layoutParams.width, v.layoutParams.height)
+            v.draw(c)
+            return b
+        }
     }
 }
