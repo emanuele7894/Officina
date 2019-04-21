@@ -3,6 +3,7 @@ package com.example.lele.officina
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -322,12 +323,13 @@ class officina_cli : AppCompatActivity() {
                     // Do something when user press the positive button
 
 
+                    phoneNum(telefono.text.toString())
 
                 }
 
                 builder.setNegativeButton("Messaggio "){dialog, wich ->
 
-
+                    sendSMS(telefono.text.toString())
 
                 }
 
@@ -358,7 +360,7 @@ class officina_cli : AppCompatActivity() {
                 builder.setPositiveButton("Invia"){dialog, which ->
                     // Do something when user press the positive button
 
-
+                    sendMail(mail.text.toString())
 
                 }
 
@@ -595,7 +597,27 @@ class officina_cli : AppCompatActivity() {
 
     }
 
+    fun sendMail(mail: String){
+        val intent = Intent(Intent.ACTION_SENDTO)
+            intent.data = Uri.parse("mailto:" + mail) // only email apps should handle this
+                intent.putExtra(Intent.EXTRA_EMAIL, mail)
+                    intent.putExtra(Intent.EXTRA_SUBJECT,"Officina Bellotti")
+                        startActivity(intent)
+    }
 
+    fun phoneNum(phone: String){
+        val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$phone")
+                 startActivity(intent)
+    }
+
+    fun sendSMS(phone: String)
+    {
+        val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("smsto:")
+                intent.putExtra("address", phone)
+                         startActivity(intent)
+    }
 
 
 }

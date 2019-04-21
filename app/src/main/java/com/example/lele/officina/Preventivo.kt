@@ -1,12 +1,16 @@
 package com.example.lele.officina
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.support.v4.print.PrintHelper
 import android.text.Editable
+import android.util.DisplayMetrics
 import android.view.View
 import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_preventivo.*
@@ -17,6 +21,9 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
+import android.support.v4.content.FileProvider
+import android.content.ActivityNotFoundException
+
 
 
 
@@ -30,6 +37,8 @@ class Preventivo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preventivo)
+
+
 
         targaTitP.text = intent.getStringExtra(".targa")
 
@@ -89,19 +98,40 @@ class Preventivo : AppCompatActivity() {
         }
 
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
-            val buttonPrint = findViewById(R.id.buttonPrint) as ImageButton
+            val buttonPrint = findViewById(R.id.printButton) as ImageButton
+                val mailButton = findViewById(R.id.mailButton) as ImageButton
 
-        //val bitmap = loadBitmapFromView(findViewById(R.id.buttonPrint), 350, 450)
+
+
 
         buttonPrint.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-          //      saveImage(bitmap)
+
+
+                val displayMetrics = DisplayMetrics()
+                    windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+                val bitmap = loadBitmapFromView(findViewById(R.id.content_preventivo_print), displayMetrics.widthPixels, displayMetrics.heightPixels)
+                     doPhotoPrint(bitmap)
+
 
 
             }
         })
 
 
+        mailButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                val displayMetrics = DisplayMetrics()
+                windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+                val bitmap = loadBitmapFromView(findViewById(R.id.content_preventivo_print), displayMetrics.widthPixels, displayMetrics.heightPixels)
+                    saveImage(bitmap)
+
+
+
+            }
+        })
 
 
 
@@ -520,16 +550,19 @@ class Preventivo : AppCompatActivity() {
 
     }
 
-    companion object {
+    private fun doPhotoPrint(bitmap: Bitmap) {
+        val photoPrinter = PrintHelper(this)
+        photoPrinter.scaleMode = PrintHelper.SCALE_MODE_FIT
+        photoPrinter.printBitmap("test print", bitmap)
+    }
+
 
         fun saveImage(bitmap: Bitmap) {
             val root = Environment.getExternalStorageDirectory().toString()
-            val myDir = File(root + "/req_images")
+            val myDir = File(root + "/offcinaPrint")
             myDir.mkdirs()
-            val generator = Random()
-            var n = 10000
-            n = generator.nextInt(n)
-            val fname = "Image-$n.jpg"
+
+            val fname = "PrintPrev.jpg"
             val file = File(myDir, fname)
             //  Log.i(TAG, "" + file);
             if (file.exists())
@@ -539,18 +572,46 @@ class Preventivo : AppCompatActivity() {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
                 out.flush()
                 out.close()
+
+
+
             } catch (e: Exception) {
                 e.printStackTrace()
             }
 
+            val imageUri = FileProvider.getUriForFile(
+                this@Preventivo,
+                "com.example.homefolder.example.provider", //(use your app signature + ".provider" )
+                file
+            )
+
+            shareImage(imageUri)
+
+
         }
+
+    private fun shareImage(file: Uri) {
+
+        val intent = Intent()
+        intent.action = Intent.ACTION_SEND
+        intent.type = "image/*"
+
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "")
+        intent.putExtra(android.content.Intent.EXTRA_TEXT, "")
+        intent.putExtra(Intent.EXTRA_STREAM, file)
+        try {
+            startActivity(Intent.createChooser(intent, "Share Screenshot"))
+        } catch (e: ActivityNotFoundException) {
+
+        }
+
+    }
 
         fun loadBitmapFromView(v: View, width: Int, height: Int): Bitmap {
             val b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
             val c = Canvas(b)
-            v.layout(0, 0, v.layoutParams.width, v.layoutParams.height)
             v.draw(c)
             return b
         }
-    }
+
 }

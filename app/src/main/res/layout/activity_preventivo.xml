@@ -35,12 +35,12 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toBottomOf="@+id/TitoloPreventivo"/>
     <ImageButton
-            android:src="@android:drawable/ic_dialog_email"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:src="@mipmap/share"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/mailButton" android:scaleType="fitXY"
             android:background="@android:color/transparent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="22dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="27dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
     <ImageButton
             android:src="@mipmap/pic_62"
@@ -53,12 +53,12 @@
             app:layout_constraintTop_toTopOf="parent"/>
     <ImageButton
             android:src="@mipmap/pic_91"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/printButton" android:scaleType="fitXY"
             android:background="@android:color/transparent"
-            android:layout_marginTop="22dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginTop="27dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="15dp"
             app:layout_constraintEnd_toStartOf="@+id/mailButton"/>
     <ScrollView
             android:layout_width="0dp"
@@ -73,7 +73,7 @@
                      layout="@layout/content_preventivo"
                      app:layout_constraintEnd_toEndOf="parent"
                      app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/textView29"
-                     app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/buttonPrint"/>
+                     app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/content_preventivo_print"/>
         </LinearLayout>
     </ScrollView>
 
