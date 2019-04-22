@@ -562,7 +562,7 @@ class Preventivo : AppCompatActivity() {
             val myDir = File(root + "/offcinaPrint")
             myDir.mkdirs()
 
-            val fname = "PrintPrev.jpg"
+            val fname = "PrintPreventivo.jpg"
             val file = File(myDir, fname)
             //  Log.i(TAG, "" + file);
             if (file.exists())

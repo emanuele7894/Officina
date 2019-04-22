@@ -130,11 +130,7 @@ class Controllo : AppCompatActivity() {
 
 
                     doPhotoPrint(bitmap, bitmap2)
-                numPage.text = "2"
-                content_controllo_print.visibility = View.INVISIBLE
-                content_controllo_print2.visibility = View.VISIBLE
-                nextPage.visibility = View.INVISIBLE
-                prevPage.visibility = View.VISIBLE
+
 
 
 
@@ -156,12 +152,6 @@ class Controllo : AppCompatActivity() {
                 val bitmap2 = loadBitmapFromView(findViewById(R.id.content_controllo_print2), displayMetrics.widthPixels, displayMetrics.heightPixels)
 
                 saveImage(bitmap, bitmap2, "condividi")
-
-                numPage.text = "2"
-                    content_controllo_print.visibility = View.INVISIBLE
-                        content_controllo_print2.visibility = View.VISIBLE
-                nextPage.visibility = View.INVISIBLE
-                    prevPage.visibility = View.VISIBLE
 
 
 
