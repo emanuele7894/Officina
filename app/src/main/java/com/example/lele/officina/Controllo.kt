@@ -5,14 +5,10 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.media.Image
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.print.PrintJob
-import android.printservice.PrintDocument
-import android.provider.DocumentsContract
 import android.support.v4.content.FileProvider
 import android.support.v4.print.PrintHelper
 import android.text.Editable
@@ -20,10 +16,8 @@ import android.util.DisplayMetrics
 import android.view.View
 import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_controllo.*
-import kotlinx.android.synthetic.main.activity_preventivo.*
 import kotlinx.android.synthetic.main.activity_preventivo.targaTitP
 import kotlinx.android.synthetic.main.content_preventivo.*
-import org.w3c.dom.Document
 import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat

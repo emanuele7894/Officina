@@ -36,7 +36,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toBottomOf="@+id/TitoloPreventivo"/>
     <ImageButton
-            android:src="@mipmap/share"
+            android:src="@drawable/ic_share_black_24dp"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:id="@+id/mailButton" android:scaleType="fitXY"
@@ -84,7 +84,7 @@
             android:layout_height="25dp" app:srcCompat="@mipmap/pic_62"
             android:id="@+id/prevPage" android:scaleType="fitXY"
             android:background="@android:color/transparent"
-            app:layout_constraintBottom_toTopOf="@+id/content_tagliando_print2"
+            app:layout_constraintBottom_toTopOf="@+id/content_controllo_print2"
             app:layout_constraintStart_toEndOf="@+id/TitoloPreventivo"
             app:layout_constraintEnd_toEndOf="@+id/printButton" android:layout_marginBottom="10dp"
             android:visibility="invisible"/>
@@ -93,7 +93,7 @@
             android:layout_height="25dp" app:srcCompat="@mipmap/pic_59"
             android:id="@+id/nextPage" android:scaleType="fitXY"
             android:background="@android:color/transparent"
-            app:layout_constraintBottom_toTopOf="@+id/content_tagliando_print2"
+            app:layout_constraintBottom_toTopOf="@+id/content_controllo_print2"
             app:layout_constraintEnd_toEndOf="@+id/mailButton" app:layout_constraintStart_toStartOf="@+id/mailButton"
             android:layout_marginBottom="10dp"/>
     <TextView
@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/numPage"
-            app:layout_constraintBottom_toTopOf="@+id/content_tagliando_print2"
+            app:layout_constraintBottom_toTopOf="@+id/content_controllo_print2"
             app:layout_constraintStart_toEndOf="@+id/prevPage"
             app:layout_constraintEnd_toStartOf="@+id/nextPage" android:layout_marginBottom="10dp"
             android:textColor="@color/common_google_signin_btn_text_dark_pressed" android:textSize="20sp"/>

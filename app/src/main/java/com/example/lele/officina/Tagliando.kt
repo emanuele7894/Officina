@@ -17,9 +17,7 @@ import android.view.View
 import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_tagliando.*
 import kotlinx.android.synthetic.main.activity_tagliando.numPage
-import kotlinx.android.synthetic.main.activity_preventivo.*
 import kotlinx.android.synthetic.main.activity_preventivo.targaTitP
-import kotlinx.android.synthetic.main.activity_tagliando.*
 import kotlinx.android.synthetic.main.content_preventivo.*
 import java.io.File
 import java.io.FileOutputStream
@@ -112,7 +110,7 @@ class Tagliando : AppCompatActivity() {
                 content_tagliando_print.visibility = View.INVISIBLE
                      content_tagliando_print2.visibility = View.VISIBLE
 
-                val bitmap2 = loadBitmapFromView(findViewById(R.id.content_tagliando_print2), displayMetrics.widthPixels, displayMetrics.heightPixels)
+                val bitmap2 = loadBitmapFromView(findViewById(R.id.content_controllo_print2), displayMetrics.widthPixels, displayMetrics.heightPixels)
 
 
 
@@ -134,7 +132,7 @@ class Tagliando : AppCompatActivity() {
                 content_tagliando_print.visibility = View.INVISIBLE
                 content_tagliando_print2.visibility = View.VISIBLE
 
-                val bitmap2 = loadBitmapFromView(findViewById(R.id.content_tagliando_print2), displayMetrics.widthPixels, displayMetrics.heightPixels)
+                val bitmap2 = loadBitmapFromView(findViewById(R.id.content_controllo_print2), displayMetrics.widthPixels, displayMetrics.heightPixels)
 
                 saveImage(bitmap, bitmap2, "condividi")
 
