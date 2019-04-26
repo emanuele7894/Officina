@@ -73,7 +73,7 @@
             android:layout_marginEnd="8dp"/>
     <ImageButton
             android:layout_width="0dp"
-            android:layout_height="65dp" app:srcCompat="@mipmap/pic_110"
+            android:layout_height="65dp" app:srcCompat="@drawable/ic_settings_black_24dp"
             android:id="@+id/imageButton" android:scaleType="fitCenter"
             android:background="@drawable/my_button"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
