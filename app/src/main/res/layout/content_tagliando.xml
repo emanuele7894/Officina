@@ -148,7 +148,7 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="26dp"
-            android:inputType="textPersonName"
+            android:inputType="numberSigned|numberDecimal"
             android:ems="10"
             android:id="@+id/editTextKm"
             android:background="@drawable/border_text2"
