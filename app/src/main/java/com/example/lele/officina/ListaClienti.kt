@@ -11,6 +11,7 @@ import com.example.lele.officina.adapter.offiListAdapter
 import com.example.lele.officina.data.officinaDati
 import com.google.firebase.database.*
 import com.mancj.materialsearchbar.MaterialSearchBar
+import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.android.synthetic.main.activity_lista_clienti.*
 import java.util.*
 
@@ -33,19 +34,21 @@ class ListaClienti : AppCompatActivity() {
 
         val searchBar = findViewById(R.id.searcBar) as MaterialSearchBar
             searchBar.setHint("Cerca cliente...")
-                searchBar.setSpeechMode(true)
+                searchBar.setSpeechMode(false)
+
 
         dati = mutableListOf()
         ref = FirebaseDatabase.getInstance().getReference("officinaData")
 
-        var datiRicerca = arrayOf("")
-        var datie = ""
+        var datiRicerca : ArrayList<String> = ArrayList()
+
 
         ref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
+            var i = 0
 
             override fun onDataChange(p0: DataSnapshot) {
 
@@ -54,18 +57,25 @@ class ListaClienti : AppCompatActivity() {
 
 
 
+
                    for(h in p0.children){
+
+
+
                        val dat = h.getValue(officinaDati::class.java)
                        dati.add(dat!!)
 
+                        datiRicerca.add(dat.idName)
 
-                       datiRicerca.set(0, dat.idName)
 
-                       Toast.makeText(applicationContext," ${h.value.toString()}  ",Toast.LENGTH_SHORT).show()
+                           i += 1
 
 
 
                    }
+
+                    i = 0
+
 
                     val adapter = offiListAdapter(applicationContext, R.layout.offic_list_row, dati)
                        listView.adapter = adapter
@@ -113,8 +123,8 @@ class ListaClienti : AppCompatActivity() {
 
 
 
-        // ListView Item Click Listener
-        listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, index, l ->
+        // ListView2 Item Click Listener
+        listView2.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, index, l ->
             val clickItemObj = index
 
 
@@ -127,9 +137,23 @@ class ListaClienti : AppCompatActivity() {
 
 
                 val numec = clickItemObj + 1
+                    var idIndex = 0
+                        var num = 0
+                            var stringa = adapterView.getItemAtPosition(index) as String
+
+                // Toast.makeText(applicationContext," $stringa ",Toast.LENGTH_SHORT).show()
+
+                for (a in datiRicerca){
+
+
+                    if (a == stringa){
+                        idIndex = num
+                    }
+                    num += 1
+                }
 
                 k1.putExtra(".nomeid", "" )
-                     k1.putExtra(".numeid", index.toString().trim() )
+                     k1.putExtra(".numeid", idIndex.toString().trim() )
                         k1.putExtra(".numec", numec.toString())
 
 
@@ -141,13 +165,41 @@ class ListaClienti : AppCompatActivity() {
 
 
         }
+        // ListView Item Click Listener
+        listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, index, l ->
+            val clickItemObj = index
+
+
+
+            if (datiRicerca.count() == 0){
+
+
+
+            }else {
+
+
+                val numec = clickItemObj + 1
+
+                k1.putExtra(".nomeid", "" )
+                    k1.putExtra(".numeid", index.toString().trim() )
+                        k1.putExtra(".numec", numec.toString())
+
+
+
+                startActivity(k1)
+
+            }
+
+
+
+        }
 
 
 
 
         val adapter2 = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datiRicerca)
-        listView2.adapter = adapter2
-        listView2.visibility = View.INVISIBLE
+            listView2.adapter = adapter2
+                listView2.visibility = View.INVISIBLE
 
         //SEARCHBAR TEXT CHANGE LISTENER
         searchBar.addTextChangeListener(object : TextWatcher {
@@ -158,10 +210,16 @@ class ListaClienti : AppCompatActivity() {
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
                 //SEARCH FILTER
                 if (searchBar.text == ""){
+
                     listView2.visibility = View.INVISIBLE
+
                 }else {
+
                     listView2.visibility = View.VISIBLE
+
                 }
+
+
 
                 adapter2.getFilter().filter(charSequence)
 
