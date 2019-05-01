@@ -60,7 +60,7 @@
             android:divider="#8EB3AEAE"
             android:dividerHeight="2px"
             android:footerDividersEnabled="true" android:id="@+id/listView2" android:layout_marginTop="40dp"
-            android:background="#E2E2E2"/>
+            android:background="#E2E2E2" android:visibility="invisible"/>
     <TextView
             android:text="+"
             android:layout_width="36dp"

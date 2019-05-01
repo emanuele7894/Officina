@@ -14,6 +14,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme2">
+        <activity android:name=".eod_view">
+        </activity>
+
         <meta-data
                 android:name="com.google.android.actions"
                 android:resource="@xml/filepaths"/>
@@ -23,6 +26,7 @@
                 android:authorities="com.example.homefolder.example.provider"
                 android:exported="false"
                 android:grantUriPermissions="true">
+
             <!-- ressource file to create -->
             <meta-data
                     android:name="android.support.FILE_PROVIDER_PATHS"
