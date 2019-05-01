@@ -19,12 +19,14 @@ class offiListAdapter(val mCtx: Context, val layoutResId: Int, val listOff: List
         val textName = view.findViewById<TextView>(R.id.TitoloPreventivo)
         val itemText = view.findViewById<TextView>(R.id.itemO)
         val targaName = view.findViewById<TextView>(R.id.targaItem)
+        val dataItem = view.findViewById<TextView>(R.id.dataItem)
         val dat = listOff[position]
         val num = position + 1
 
         itemText.text = num.toString().trim()
         textName.text = dat.name
         targaName.text = dat.targa
+        dataItem.text = dat.data
 
 
 

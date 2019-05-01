@@ -447,7 +447,7 @@ class interventi_view : AppCompatActivity() {
 
     }
 
-
+//Mostra la tastiera
     private fun showSoftKeyboard(view: View) {
         if (view.requestFocus()) {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

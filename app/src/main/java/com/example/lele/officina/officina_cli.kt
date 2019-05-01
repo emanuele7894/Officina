@@ -18,7 +18,9 @@ import com.example.lele.officina.data.officinaDati
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_officina_cli.*
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -557,12 +559,14 @@ class officina_cli : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun saveMode(){
 
-        val current = LocalDateTime.now()
+        var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+            var current = LocalDate.now().format(formatter)
+
              ref = FirebaseDatabase.getInstance().getReference("officinaData")
 
       if (stringaCaricata == "Nuovo"){
 
-          idName = nome_cognome.text.toString().trim() + "-" + targa.text.toString().trim()
+          idName = nome_cognome.text.toString().trim() + " - " + targa.text.toString().trim()
 
 
       }else if (stringaCaricata == "Esistente"){
@@ -574,7 +578,7 @@ class officina_cli : AppCompatActivity() {
         val officinaDati = officinaDati(
             idName.toString().trim(),
             intent.getStringExtra(".numec"),
-            current.toString().trim(),
+            current.toString(),
             nome_cognome.text.toString().trim(),
             telefono.text.toString().trim(),
             mail.text.toString().trim(),

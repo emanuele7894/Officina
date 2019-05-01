@@ -13,6 +13,7 @@ import com.google.firebase.database.*
 import com.mancj.materialsearchbar.MaterialSearchBar
 import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.android.synthetic.main.activity_lista_clienti.*
+import kotlinx.android.synthetic.main.activity_officina_cli.*
 import java.util.*
 
 class ListaClienti : AppCompatActivity() {
@@ -66,6 +67,7 @@ class ListaClienti : AppCompatActivity() {
                        dati.add(dat!!)
 
                         datiRicerca.add(dat.idName)
+                         cliItem.text = "Numero clienti : " + datiRicerca.count()
 
 
                            i += 1
@@ -201,6 +203,7 @@ class ListaClienti : AppCompatActivity() {
             listView2.adapter = adapter2
                 listView2.visibility = View.INVISIBLE
 
+
         //SEARCHBAR TEXT CHANGE LISTENER
         searchBar.addTextChangeListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
@@ -229,6 +232,8 @@ class ListaClienti : AppCompatActivity() {
 
             }
         })
+
+
 
 
     }
