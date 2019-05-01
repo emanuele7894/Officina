@@ -37,7 +37,8 @@
                                                    app:layout_constraintTop_toBottomOf="@+id/textView14"
                                                    app:layout_constraintEnd_toEndOf="parent"
                                                    app:layout_constraintStart_toStartOf="parent"
-                                                   android:id="@+id/searcBar">
+                                                   android:id="@+id/searcBar"
+                                                   app:mt_textCursorTint="@color/colorPrimaryDark">
 
 
     </com.mancj.materialsearchbar.MaterialSearchBar>
@@ -49,12 +50,13 @@
             app:layout_constraintBottom_toBottomOf="parent" android:layout_width="0dp"
             android:divider="#8EB3AEAE"
             android:dividerHeight="2px"
-            android:footerDividersEnabled="true" android:id="@+id/listView" android:layout_marginTop="40dp"/>
+            android:footerDividersEnabled="true" android:id="@+id/listView" android:layout_marginTop="40dp"
+            android:background="@drawable/offsfondo"/>
     <ListView
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textView8" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_width="0dp"
+            android:layout_width="0dp"
             android:divider="#8EB3AEAE"
             android:dividerHeight="2px"
             android:footerDividersEnabled="true" android:id="@+id/listView2" android:layout_marginTop="40dp"

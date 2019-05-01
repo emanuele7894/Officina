@@ -1,8 +1,10 @@
 package com.example.lele.officina
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -36,6 +38,7 @@ class ListaClienti : AppCompatActivity() {
         val searchBar = findViewById(R.id.searcBar) as MaterialSearchBar
             searchBar.setHint("Cerca cliente...")
                 searchBar.setSpeechMode(false)
+
 
 
         dati = mutableListOf()
@@ -201,7 +204,8 @@ class ListaClienti : AppCompatActivity() {
 
         val adapter2 = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datiRicerca)
             listView2.adapter = adapter2
-                listView2.visibility = View.INVISIBLE
+                listView2.alpha = 0.0f
+                    listView2.visibility = View.INVISIBLE
 
 
         //SEARCHBAR TEXT CHANGE LISTENER
@@ -212,11 +216,28 @@ class ListaClienti : AppCompatActivity() {
 
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
                 //SEARCH FILTER
+
                 if (searchBar.text == ""){
 
-                    listView2.visibility = View.INVISIBLE
+                    val listVisible = ObjectAnimator.ofFloat(listView2, View.ALPHA,  0.0f)
+                        listVisible.duration = 500
+                            listVisible.start()
+
+
+                    Handler().postDelayed({
+
+                        listView2.visibility = View.INVISIBLE
+
+
+                    }, 500)
+
 
                 }else {
+
+                    val listVisible = ObjectAnimator.ofFloat(listView2, View.ALPHA,  1.0f)
+                        listVisible.duration = 500
+                            listVisible.start()
+
 
                     listView2.visibility = View.VISIBLE
 
