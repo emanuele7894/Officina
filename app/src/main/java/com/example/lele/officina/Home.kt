@@ -16,10 +16,12 @@ class Home : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
 
         var k: Intent = Intent(this@Home, ListaClienti::class.java)
+        var k1: Intent = Intent(this@Home, eod_view::class.java )
 
 
         //Pulsante clienti
         val buttonClienti: ImageButton = findViewById(R.id.ButtonClient) as ImageButton
+            val obdButton = findViewById(R.id.obdButton) as ImageButton
 
 
 
@@ -34,6 +36,18 @@ class Home : AppCompatActivity() {
             }
         })
 //fine Pulsante clienti
+
+        //pulsante obdButton
+        obdButton.setOnClickListener(object : View.OnClickListener {
+
+            override fun onClick(v: View?) {
+
+
+
+                startActivity(k1)
+
+            }
+        })
 
     }
 }

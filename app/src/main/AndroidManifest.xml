@@ -14,7 +14,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme2">
-        <activity android:name=".eod_view">
+        <activity android:name=".eod_view"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
         </activity>
 
         <meta-data
@@ -34,16 +36,22 @@
             </meta-data>
         </provider>
 
-        <activity android:name=".Tagliando">
+        <activity android:name=".Tagliando"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".Controllo">
+        <activity android:name=".Controllo"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".Preventivo"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".splashScreen">
+        <activity android:name=".splashScreen"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
