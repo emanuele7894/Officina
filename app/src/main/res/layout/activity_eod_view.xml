@@ -43,15 +43,15 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName|textCapCharacters"
+            android:inputType="textPersonName|textCapSentences|textCapCharacters"
             android:ems="10"
             android:id="@+id/editTextCode"
             app:layout_constraintTop_toBottomOf="@+id/TitoloEobd" app:layout_constraintStart_toStartOf="parent"
             android:textAlignment="center" android:textColor="#B3A6A6"
-            android:fontFamily="@font/heebo" android:textSize="50sp" android:background="@drawable/border"
-            android:cursorVisible="true" android:textCursorDrawable="@color/colorPrimaryDark" android:hint="P000"
+            android:fontFamily="@font/heebo" android:textSize="50sp"
+            android:cursorVisible="true" android:textCursorDrawable="@color/colorPrimaryDark" android:hint="P0000"
             android:textColorHint="#88FF5252"
-            app:layout_constraintEnd_toStartOf="@+id/okButton"/>
+            app:layout_constraintEnd_toStartOf="@+id/okButton" android:background="@color/colorPrimaryDark2"/>
     <TextView
             android:text="ALFA ROMEO"
             android:layout_width="0dp"
@@ -87,7 +87,7 @@
             android:fontFamily="@font/heebo"
             android:textColor="@color/colorPrimaryDark" android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/imageButton4" android:textAlignment="center"
-            android:background="#CD333030"
+            android:background="#854D4949"
             app:layout_constraintTop_toBottomOf="@+id/editTextCode"/>
     <ImageButton
             android:layout_width="45dp"
