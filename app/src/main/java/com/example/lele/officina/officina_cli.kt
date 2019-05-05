@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v7.app.AlertDialog
 import android.text.Editable
+import android.text.InputType
+import android.text.TextWatcher
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -19,9 +21,10 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_officina_cli.*
 import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
+import android.text.method.TextKeyListener
+import android.view.KeyEvent
 
 
 class officina_cli : AppCompatActivity() {
@@ -42,6 +45,7 @@ class officina_cli : AppCompatActivity() {
     var idName = ""
     var idTarga = ""
     var chek = false
+    var keyC = true
     lateinit var  ref: DatabaseReference
     lateinit var  ref2: DatabaseReference
     lateinit var dati : MutableList<officinaDati>
@@ -199,6 +203,8 @@ class officina_cli : AppCompatActivity() {
             }
 
 
+
+
             ref.addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -263,6 +269,63 @@ class officina_cli : AppCompatActivity() {
 
         }
 
+
+        targa.addTextChangedListener(object : TextWatcher {
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+
+                if (targa.length() == 2){
+
+                    targa.setInputType(InputType.TYPE_CLASS_NUMBER)
+
+
+                }
+
+                if (targa.length() == 5){
+
+                    targa.setInputType(InputType.TYPE_CLASS_TEXT)
+                        targa.setKeyListener(TextKeyListener(TextKeyListener.Capitalize.CHARACTERS, true))
+
+                }
+
+                if (targa.length() == 4){
+
+                    targa.setInputType(InputType.TYPE_CLASS_NUMBER)
+
+
+                }
+
+                if (targa.length() == 1){
+
+                    targa.setInputType(InputType.TYPE_CLASS_TEXT)
+                        targa.setKeyListener(TextKeyListener(TextKeyListener.Capitalize.CHARACTERS, true))
+
+                }
+
+
+
+            }
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
+
+
+            }
+
+            override fun afterTextChanged(s: Editable) {
+
+            }
+        })
+
+        targa.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                //Perform Code
+                val inputManager:InputMethodManager =getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    inputManager.hideSoftInputFromWindow(currentFocus.windowToken, InputMethodManager.SHOW_FORCED)
+
+                return@OnKeyListener true
+            }
+            false
+        })
 
 
 
