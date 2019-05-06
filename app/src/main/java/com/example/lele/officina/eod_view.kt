@@ -22,6 +22,8 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_eod_view.buttonBack
 import kotlinx.android.synthetic.main.activity_interventi_view.view.*
 import kotlinx.android.synthetic.main.activity_lista_clienti.*
+import android.content.Intent
+import android.net.Uri
 
 
 class eod_view : AppCompatActivity() {
@@ -308,6 +310,17 @@ class eod_view : AppCompatActivity() {
 
 
 
+
+
+        searchInternet.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+
+                val stringa = editTextCode.text.toString()
+                val stringab = marcaText.text.toString()
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q= $stringa $stringab code error"))
+                startActivity(browserIntent)
+            }
+        })
 
 
 
