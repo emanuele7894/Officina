@@ -316,8 +316,9 @@ class eod_view : AppCompatActivity() {
             override fun onClick(v: View?) {
 
                 val stringa = editTextCode.text.toString()
-                val stringab = marcaText.text.toString()
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q= $stringa $stringab code error"))
+                    val stringab = marcaText.text.toString()
+                        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q= $stringa $stringab code error"))
+
                 startActivity(browserIntent)
             }
         })
@@ -393,13 +394,15 @@ class eod_view : AppCompatActivity() {
             }else {
 
                 if(stringaB == null){
+                    var stringaCode = "Codice: $stringa non presente , controlla di aver inserito il codice in modo corretto oppure effettua una ricerca su Google con il pulsante G. "
 
                     titleCode.text = "Codice non presente"
-                        codeDesc.text = "Codice: $stringa non presente , controlla di aver inserito il codice in modo corretto oppure effettua una ricerca su Google con il pulsante G. "
+                        codeDesc.text = Editable.Factory.getInstance().newEditable(stringaCode)
 
                 }else{
 
-                    codeDesc.text = stringaB
+
+                    codeDesc.text =  Editable.Factory.getInstance().newEditable(stringaB)
                         titleCode.text = stringa
 
                 }
