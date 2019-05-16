@@ -5,6 +5,7 @@ import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -13,6 +14,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_dati_veicolo.*
 import kotlinx.android.synthetic.main.activity_dati_veicolo.buttonBack
 import kotlinx.android.synthetic.main.activity_officina_cli.*
+import kotlinx.android.synthetic.main.content_veicle.*
 
 class datiVeicolo : AppCompatActivity() {
 
@@ -142,12 +144,14 @@ class datiVeicolo : AppCompatActivity() {
 
                     logo.setImageResource(R.mipmap.gav)
 
-                }else {
-                    logo.setImageResource(R.mipmap.dacia)
+                }else if(dati["marca"] == "gf"){
+
+                    logo.setImageResource(R.mipmap.gf)
+
                 }
 
-
-
+                editTextModello.text = Editable.Factory.getInstance().newEditable(dati["modello"])
+                    editTextCilindrata.text = Editable.Factory.getInstance().newEditable(dati["cilindrata"])
 
             }else {
 
