@@ -75,7 +75,7 @@ class interventi_view : AppCompatActivity() {
 
         val buttoDataInterv = findViewById(R.id.buttonData) as ImageButton
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
-        val buttonSave = findViewById(R.id.mailButton) as ImageButton
+        val buttonSave = findViewById(R.id.saveButton) as ImageButton
         val buttonPrev= findViewById(R.id.buttonPreventivo) as ImageButton
         val buttonContr = findViewById(R.id.buttonControllo) as  ImageButton
         val buttonTagl = findViewById(R.id.buttonTagliando) as ImageButton

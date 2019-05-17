@@ -71,7 +71,7 @@ class officina_cli : AppCompatActivity() {
         note = findViewById(R.id.editTextNote)
 
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
-        val buttonSave = findViewById(R.id.mailButton) as ImageButton
+        val buttonSave = findViewById(R.id.saveButton) as ImageButton
         val buttonInterv = findViewById(R.id.buttonInterv) as ImageButton
         val buttonTel = findViewById(R.id.buttonTel) as ImageButton
         val buttonMail = findViewById(R.id.buttonMail) as ImageButton

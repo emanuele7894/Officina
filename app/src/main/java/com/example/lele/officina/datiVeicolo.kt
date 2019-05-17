@@ -21,7 +21,9 @@ class datiVeicolo : AppCompatActivity() {
 
     lateinit var  ref: DatabaseReference
     var check = false
+    var editSave = false
     var dati = hashMapOf<String,String>()
+    var pag = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,16 +100,25 @@ class datiVeicolo : AppCompatActivity() {
             }
         })
 
+
+        fun showPanel(){
+            codicePannel.visibility = View.VISIBLE
+
+
+            val listVisible = ObjectAnimator.ofFloat(codicePannel, View.ALPHA,  1.0f)
+            listVisible.duration = 500
+            listVisible.start()
+
+            showSoftKeyboard(ditCodice)
+
+        }
+
+        showPanel()
+
         addCodic.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                codicePannel.visibility = View.VISIBLE
 
-
-                val listVisible = ObjectAnimator.ofFloat(codicePannel, View.ALPHA,  1.0f)
-                        listVisible.duration = 500
-                             listVisible.start()
-
-                showSoftKeyboard(ditCodice)
+            showPanel()
 
 
             }
@@ -131,6 +142,47 @@ class datiVeicolo : AppCompatActivity() {
 
         }
 
+        pagina.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+
+                if(pag == 1){
+                    pag = 2
+
+                    val listVisible = ObjectAnimator.ofFloat(content_dati_veicolo, View.ALPHA,  0.0f)
+                        listVisible.duration = 500
+                            listVisible.start()
+
+                    val listVisible2 = ObjectAnimator.ofFloat(content_dati_veicolo2, View.ALPHA,  1.0f)
+                        listVisible2.duration = 500
+                            listVisible2.start()
+
+                    pagina.setImageResource(R.mipmap.pic_81)
+
+
+                }else if(pag == 2){
+                    pag = 1
+
+                    val listVisible = ObjectAnimator.ofFloat(content_dati_veicolo, View.ALPHA,  1.0f)
+                        listVisible.duration = 500
+                            listVisible.start()
+
+                    val listVisible2 = ObjectAnimator.ofFloat(content_dati_veicolo2, View.ALPHA,  0.0f)
+                        listVisible2.duration = 500
+                            listVisible2.start()
+
+                    pagina.setImageResource(R.mipmap.pic_80)
+
+
+                }
+
+
+
+
+
+
+            }
+        })
+
 
         //Esegue la ricerca del codice motore
         fun ok(){
@@ -152,6 +204,15 @@ class datiVeicolo : AppCompatActivity() {
 
                 editTextModello.text = Editable.Factory.getInstance().newEditable(dati["modello"])
                     editTextCilindrata.text = Editable.Factory.getInstance().newEditable(dati["cilindrata"])
+                        editTextOlio.text = Editable.Factory.getInstance().newEditable(dati["olioMotore"])
+                            editTextRaff.text = Editable.Factory.getInstance().newEditable(dati["raffreddamento"])
+                                editTextCambio.text = Editable.Factory.getInstance().newEditable(dati["olioCambio"])
+                                    editTextCoppie.text = Editable.Factory.getInstance().newEditable(dati["coppie"])
+                                        editTextBatt.text = Editable.Factory.getInstance().newEditable(dati["batteriaAlternatore"])
+                                            editTextVentole.text = Editable.Factory.getInstance().newEditable(dati["ventole"])
+                                                editTextService.text = Editable.Factory.getInstance().newEditable(dati["spiaService"])
+
+
 
             }else {
 
@@ -159,17 +220,57 @@ class datiVeicolo : AppCompatActivity() {
 
             }
 
+        }
+
+        fun enable(){
+            editTextModello.isFocusableInTouchMode = true
+        }
+
+        fun disable(){
+            editTextModello.isFocusableInTouchMode = false
+        }
 
 
+        fun saveInst(){
+            val idNameT = codiceMtext.text.toString().trim()
+                var ref2 = FirebaseDatabase.getInstance().getReference("datiVeicolo")
+                    var datB = hashMapOf<String,String>()
+
+            datB.set("modello", editTextModello.text.toString())
+                ref2.child(idNameT).setValue(datB).addOnCompleteListener {
 
 
-
+            }
 
 
 
 
         }
 
+        saveButtonD.setOnClickListener(object : View.OnClickListener {
+
+            override fun onClick(v: View?) {
+
+                if (editSave == false ){
+
+                    editSave = true
+                        enable()
+                            saveButtonD.setImageResource(R.mipmap.pic_106)
+
+
+                }else {
+
+                    editSave = false
+                        saveInst()
+                            disable()
+                                saveButtonD.setImageResource(R.mipmap.pic_107)
+
+                    hidKeyboard()
+
+                }
+
+            }
+        })
 
 
 
