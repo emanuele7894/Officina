@@ -160,32 +160,18 @@
             android:fontFamily="@font/heebo_bold" android:textSize="20sp"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:background="@color/colorAccent"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/buttonControllo"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/imageButton2"
             android:gravity="top" android:textCursorDrawable="@drawable/cursor_color" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPreventivo"/>
     <ImageButton
             android:layout_width="0dp"
             android:layout_height="45dp" app:srcCompat="@drawable/ic_receipt_black_24dp"
             android:id="@+id/buttonPreventivo" android:scaleType="fitCenter"
             android:layout_marginBottom="30dp" app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/my_button"
-            app:layout_constraintStart_toStartOf="@+id/textView23" app:layout_constraintEnd_toEndOf="@+id/textView23"/>
-    <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="45dp" app:srcCompat="@mipmap/pic_28"
-            android:id="@+id/buttonControllo"
-            android:scaleType="fitCenter" android:background="@drawable/my_button"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="30dp"
-            app:layout_constraintStart_toStartOf="@+id/textView24" app:layout_constraintEnd_toEndOf="@+id/textView24"/>
-    <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="45dp" app:srcCompat="@mipmap/pic_58"
-            android:id="@+id/buttonTagliando" android:scaleType="fitCenter"
-            android:background="@drawable/my_button"
-            app:layout_constraintStart_toStartOf="@+id/textView25"
-            app:layout_constraintEnd_toEndOf="@+id/textView25" android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginStart="8dp"/>
     <TextView
             android:text="Preventivo"
             android:layout_width="wrap_content"
@@ -193,24 +179,8 @@
             android:id="@+id/textView23"
             android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta" android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@+id/buttonPreventivo"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-            android:text="Controllo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView24"
-            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta" android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/buttonControllo"
-            app:layout_constraintStart_toStartOf="@+id/textView26" app:layout_constraintEnd_toEndOf="@+id/textView26"/>
-    <TextView
-            android:text="Tagliando"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView25"
-            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta" android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/buttonTagliando"/>
+            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="@+id/buttonPreventivo"/>
     <TextView
             android:layout_width="4dp"
             android:layout_height="0dp"

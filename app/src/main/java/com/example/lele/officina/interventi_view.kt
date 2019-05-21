@@ -55,8 +55,6 @@ class interventi_view : AppCompatActivity() {
         setContentView(R.layout.activity_interventi_view)
 
         var k: Intent = Intent(this@interventi_view, Preventivo::class.java)
-        var k1: Intent = Intent(this@interventi_view, Controllo::class.java)
-        var k2: Intent = Intent(this@interventi_view, Tagliando::class.java)
 
 
         number = findViewById(R.id.number)
@@ -77,8 +75,6 @@ class interventi_view : AppCompatActivity() {
         val buttonBack = findViewById(R.id.buttonBack) as ImageButton
         val buttonSave = findViewById(R.id.saveButton) as ImageButton
         val buttonPrev= findViewById(R.id.buttonPreventivo) as ImageButton
-        val buttonContr = findViewById(R.id.buttonControllo) as  ImageButton
-        val buttonTagl = findViewById(R.id.buttonTagliando) as ImageButton
         val deleteButtonI = findViewById(R.id.deleteButtonI) as ImageButton
         var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
         var current = LocalDate.now().format(formatter)
@@ -260,26 +256,7 @@ class interventi_view : AppCompatActivity() {
             }
         })
 
-        //Pulsante Controllo
-        buttonContr.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                k1.putExtra(".targa", targaTit.text.toString())
-                    k1.putExtra(".nomeCognome", nomeCognome)
-                        k1.putExtra(".marca", marcaModello)
-                startActivity(k1)
-            }
-        })
 
-
-        //Pulsante Tagliando
-        buttonTagl.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                k2.putExtra(".targa", targaTit.text.toString())
-                    k2.putExtra(".nomeCognome", nomeCognome)
-                        k2.putExtra(".marca", marcaModello)
-                startActivity(k2)
-            }
-        })
 
 
         //Pulsante rimuovi Intervento

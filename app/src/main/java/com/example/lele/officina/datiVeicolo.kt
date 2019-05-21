@@ -24,6 +24,7 @@ class datiVeicolo : AppCompatActivity() {
     var editSave = false
     var dati = hashMapOf<String,String>()
     var pag = 1
+    var cinghia = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -211,7 +212,7 @@ class datiVeicolo : AppCompatActivity() {
                                         editTextBatt.text = Editable.Factory.getInstance().newEditable(dati["batteriaAlternatore"])
                                             editTextVentole.text = Editable.Factory.getInstance().newEditable(dati["ventole"])
                                                 editTextService.text = Editable.Factory.getInstance().newEditable(dati["spiaService"])
-
+                                                    cinghia = dati["infoCinghia"].toString()
 
 
             }else {
@@ -223,11 +224,34 @@ class datiVeicolo : AppCompatActivity() {
         }
 
         fun enable(){
+
             editTextModello.isFocusableInTouchMode = true
+            editTextCilindrata.isFocusableInTouchMode = true
+            editTextOlio.isFocusableInTouchMode = true
+            editTextRaff.isFocusableInTouchMode = true
+            editTextCambio.isFocusableInTouchMode = true
+            editTextCoppie.isFocusableInTouchMode = true
+            editTextBatt.isFocusableInTouchMode = true
+            editTextVentole.isFocusableInTouchMode = true
+            editTextService.isFocusableInTouchMode = true
+
+
         }
 
         fun disable(){
+
             editTextModello.isFocusableInTouchMode = false
+            editTextCilindrata.isFocusableInTouchMode = false
+            editTextOlio.isFocusableInTouchMode = false
+            editTextRaff.isFocusableInTouchMode = false
+            editTextCambio.isFocusableInTouchMode = false
+            editTextCoppie.isFocusableInTouchMode = false
+            editTextBatt.isFocusableInTouchMode = false
+            editTextVentole.isFocusableInTouchMode = false
+            editTextService.isFocusableInTouchMode = false
+
+
+
         }
 
 
@@ -237,6 +261,18 @@ class datiVeicolo : AppCompatActivity() {
                     var datB = hashMapOf<String,String>()
 
             datB.set("modello", editTextModello.text.toString())
+                datB.set("cilindrata", editTextCilindrata.text.toString())
+                    datB.set("olioMotore", editTextOlio.text.toString())
+                        datB.set("raffreddamento", editTextRaff.text.toString())
+                            datB.set("olioCambio", editTextCilindrata.text.toString())
+                                datB.set("coppie", editTextCoppie.text.toString())
+                                    datB.set("batteriaAlternatore", editTextBatt.text.toString())
+                                        datB.set("ventole", editTextVentole.text.toString())
+                                            datB.set("spiaService", editTextService.text.toString())
+                                                datB.set("infoCinghia", cinghia)
+
+
+
                 ref2.child(idNameT).setValue(datB).addOnCompleteListener {
 
 
@@ -322,16 +358,7 @@ class datiVeicolo : AppCompatActivity() {
 
 
 
-
-
-
-
     }
-
-
-
-
-
 
 
 }
