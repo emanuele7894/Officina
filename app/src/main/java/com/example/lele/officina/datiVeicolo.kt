@@ -13,18 +13,18 @@ import android.widget.Toast
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_dati_veicolo.*
 import kotlinx.android.synthetic.main.activity_dati_veicolo.buttonBack
-import kotlinx.android.synthetic.main.activity_officina_cli.*
 import kotlinx.android.synthetic.main.content_veicle.*
+import kotlinx.android.synthetic.main.content_veicle2.*
 
 class datiVeicolo : AppCompatActivity() {
 
 
     lateinit var  ref: DatabaseReference
+    lateinit var  ref2: DatabaseReference
     var check = false
     var editSave = false
     var dati = hashMapOf<String,String>()
-    var pag = 1
-    var cinghia = ""
+    var imageTesta = hashMapOf<String,String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,10 @@ class datiVeicolo : AppCompatActivity() {
 
 
         fun loadRef(codice: String){
+
+
             ref = FirebaseDatabase.getInstance().getReference("datiVeicolo").child(codice)
+            ref2 = FirebaseDatabase.getInstance().getReference("documentoTesta").child(codice)
 
             ref.addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -44,8 +47,10 @@ class datiVeicolo : AppCompatActivity() {
                 }
 
 
+            //Carico i dati veicolo
                 override fun onDataChange(p0: DataSnapshot) {
                     dati.clear()
+                    imageTesta.clear()
 
 
                     if (p0.exists()) {
@@ -69,6 +74,41 @@ class datiVeicolo : AppCompatActivity() {
                 }
 
             })
+
+
+                //CaRICO immagine testa
+            ref2.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    imageTesta.clear()
+
+
+                    if (p0.exists()) {
+
+                        for (h in p0.children) {
+
+                            imageTesta.set(h.key.toString(), h.value.toString())
+
+                        }
+
+
+
+                    }else {
+
+                        //Non esistente
+                        Toast.makeText(applicationContext,"non presente", Toast.LENGTH_SHORT).show()
+
+
+                    }
+
+                }
+
+            })
+
 
         }
 
@@ -143,46 +183,7 @@ class datiVeicolo : AppCompatActivity() {
 
         }
 
-        pagina.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
 
-                if(pag == 1){
-                    pag = 2
-
-                    val listVisible = ObjectAnimator.ofFloat(content_dati_veicolo, View.ALPHA,  0.0f)
-                        listVisible.duration = 500
-                            listVisible.start()
-
-                    val listVisible2 = ObjectAnimator.ofFloat(content_dati_veicolo2, View.ALPHA,  1.0f)
-                        listVisible2.duration = 500
-                            listVisible2.start()
-
-                    pagina.setImageResource(R.mipmap.pic_81)
-
-
-                }else if(pag == 2){
-                    pag = 1
-
-                    val listVisible = ObjectAnimator.ofFloat(content_dati_veicolo, View.ALPHA,  1.0f)
-                        listVisible.duration = 500
-                            listVisible.start()
-
-                    val listVisible2 = ObjectAnimator.ofFloat(content_dati_veicolo2, View.ALPHA,  0.0f)
-                        listVisible2.duration = 500
-                            listVisible2.start()
-
-                    pagina.setImageResource(R.mipmap.pic_80)
-
-
-                }
-
-
-
-
-
-
-            }
-        })
 
 
         //Esegue la ricerca del codice motore
@@ -208,11 +209,11 @@ class datiVeicolo : AppCompatActivity() {
                         editTextOlio.text = Editable.Factory.getInstance().newEditable(dati["olioMotore"])
                             editTextRaff.text = Editable.Factory.getInstance().newEditable(dati["raffreddamento"])
                                 editTextCambio.text = Editable.Factory.getInstance().newEditable(dati["olioCambio"])
-                                    editTextCoppie.text = Editable.Factory.getInstance().newEditable(dati["coppie"])
+                                    editTextService.text = Editable.Factory.getInstance().newEditable(dati["coppie"])
                                         editTextBatt.text = Editable.Factory.getInstance().newEditable(dati["batteriaAlternatore"])
                                             editTextVentole.text = Editable.Factory.getInstance().newEditable(dati["ventole"])
-                                                editTextService.text = Editable.Factory.getInstance().newEditable(dati["spiaService"])
-                                                    cinghia = dati["infoCinghia"].toString()
+                                                editTextCoppie.text = Editable.Factory.getInstance().newEditable(dati["spiaService"])
+                                                    editTextCinghia.text = Editable.Factory.getInstance().newEditable(dati["infoCinghia"])
 
 
             }else {
@@ -230,10 +231,11 @@ class datiVeicolo : AppCompatActivity() {
             editTextOlio.isFocusableInTouchMode = true
             editTextRaff.isFocusableInTouchMode = true
             editTextCambio.isFocusableInTouchMode = true
-            editTextCoppie.isFocusableInTouchMode = true
+            editTextService.isFocusableInTouchMode = true
             editTextBatt.isFocusableInTouchMode = true
             editTextVentole.isFocusableInTouchMode = true
-            editTextService.isFocusableInTouchMode = true
+            editTextCoppie.isFocusableInTouchMode = true
+            editTextCinghia.isFocusableInTouchMode = true
 
 
         }
@@ -245,10 +247,11 @@ class datiVeicolo : AppCompatActivity() {
             editTextOlio.isFocusableInTouchMode = false
             editTextRaff.isFocusableInTouchMode = false
             editTextCambio.isFocusableInTouchMode = false
-            editTextCoppie.isFocusableInTouchMode = false
+            editTextService.isFocusableInTouchMode = false
             editTextBatt.isFocusableInTouchMode = false
             editTextVentole.isFocusableInTouchMode = false
-            editTextService.isFocusableInTouchMode = false
+            editTextCoppie.isFocusableInTouchMode = false
+            editTextCinghia.isFocusableInTouchMode = false
 
 
 
@@ -265,11 +268,11 @@ class datiVeicolo : AppCompatActivity() {
                     datB.set("olioMotore", editTextOlio.text.toString())
                         datB.set("raffreddamento", editTextRaff.text.toString())
                             datB.set("olioCambio", editTextCilindrata.text.toString())
-                                datB.set("coppie", editTextCoppie.text.toString())
+                                datB.set("coppie", editTextService.text.toString())
                                     datB.set("batteriaAlternatore", editTextBatt.text.toString())
                                         datB.set("ventole", editTextVentole.text.toString())
-                                            datB.set("spiaService", editTextService.text.toString())
-                                                datB.set("infoCinghia", cinghia)
+                                            datB.set("spiaService", editTextCoppie.text.toString())
+                                                datB.set("infoCinghia", editTextCinghia.text.toString())
 
 
 
@@ -348,14 +351,12 @@ class datiVeicolo : AppCompatActivity() {
 
                     ok()
 
-                }, 1500)
+                }, 2000)
 
                 return@OnKeyListener true
             }
             false
         })
-
-
 
 
     }

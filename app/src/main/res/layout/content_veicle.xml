@@ -3,7 +3,7 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
-                                             android:layout_height="1528dp"
+                                             android:layout_height="match_parent"
                                              android:background="@color/colorSfondo">
 
     <ImageView
@@ -175,7 +175,7 @@
             android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/imageView18"
             app:layout_constraintTop_toBottomOf="@+id/textView51"/>
     <TextView
-            android:text="Coppie di serraggio testata"
+            android:text="Reset spia service"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:id="@+id/textView52"
@@ -186,7 +186,7 @@
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"/>
     <ImageView
             android:layout_width="80dp"
-            android:layout_height="80dp" app:srcCompat="@mipmap/pic_36"
+            android:layout_height="80dp" app:srcCompat="@mipmap/pic_98"
             android:id="@+id/imageView19"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" android:layout_marginTop="8dp"
@@ -197,7 +197,7 @@
             android:layout_height="100dp"
             android:inputType="textMultiLine|textPersonName"
             android:ems="10"
-            android:id="@+id/editTextCoppie"
+            android:id="@+id/editTextService"
             android:textAlignment="center" android:textColor="#F7FFFFFF" android:fontFamily="@font/allerta"
             android:background="@android:drawable/editbox_dropdown_dark_frame" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -222,7 +222,7 @@
             android:id="@+id/imageView20"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/editTextCoppie"/>
+            app:layout_constraintTop_toBottomOf="@+id/editTextService"/>
 
     <EditText
             android:layout_width="0dp"
@@ -271,7 +271,7 @@
             app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/imageView21"/>
     <TextView
-            android:text="Reset spia service"
+            android:text="Coppie di serraggio testata"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:id="@+id/textView55"
@@ -282,7 +282,7 @@
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"/>
     <ImageView
             android:layout_width="80dp"
-            android:layout_height="80dp" app:srcCompat="@mipmap/pic_98"
+            android:layout_height="80dp" app:srcCompat="@mipmap/pic_36"
             android:id="@+id/imageView22"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" android:layout_marginTop="8dp"
@@ -293,7 +293,7 @@
             android:layout_height="100dp"
             android:inputType="textMultiLine|textPersonName"
             android:ems="10"
-            android:id="@+id/editTextService"
+            android:id="@+id/editTextCoppie"
             android:textAlignment="center" android:textColor="#F7FFFFFF" android:fontFamily="@font/allerta"
             android:background="@android:drawable/editbox_dropdown_dark_frame" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
