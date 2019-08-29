@@ -58,6 +58,8 @@ class eod_view : AppCompatActivity() {
         customeAdapter = CustomAdapter(this, imageModelArrayList!!)
         lv!!.adapter = customeAdapter
 
+        var k: Intent = Intent(this@eod_view, ListaClienti::class.java)
+
 
         //Carica Dati array
         fun loadRef(){
@@ -340,32 +342,7 @@ class eod_view : AppCompatActivity() {
 
 
 
-                if (keyC == true) {
-
-
-
-                    if (count == 1) {
-
-                        editTextCode.setInputType(InputType.TYPE_CLASS_NUMBER)
-                            keyC = false
-
-
-                     }
-
-
-
-
-                }
-
-                if (editTextCode.length() == 0) {
-
-                    editTextCode.setInputType(InputType.TYPE_CLASS_TEXT)
                         editTextCode.setKeyListener(TextKeyListener(TextKeyListener.Capitalize.CHARACTERS, true))
-                            keyC = true
-
-
-
-                }
 
 
             }
@@ -392,6 +369,13 @@ class eod_view : AppCompatActivity() {
 
 
             }else {
+
+                if(stringa == "OFFICINA"){
+
+                    startActivity(k)
+                        editTextCode.text = Editable.Factory.getInstance().newEditable("")
+
+                }
 
                 if(stringaB == null){
                     var stringaCode = "Codice: $stringa non presente , controlla di aver inserito il codice in modo corretto oppure effettua una ricerca su Google con il pulsante G. "

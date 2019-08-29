@@ -93,6 +93,9 @@ class datiVeicolo : AppCompatActivity() {
 
                             imageTesta.set(h.key.toString(), h.value.toString())
 
+                            var stringa = imageTesta["0"]
+                            Toast.makeText(applicationContext,"non presente", Toast.LENGTH_SHORT).show()
+
                         }
 
 

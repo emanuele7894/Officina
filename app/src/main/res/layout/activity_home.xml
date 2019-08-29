@@ -29,129 +29,181 @@
             android:fontFamily="@font/allerta" android:textSize="40sp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/logo" android:textColor="@color/colorPrimaryDark"
             android:gravity="center|top"/>
+
+
     <ImageButton
+            android:id="@+id/dataButton"
             android:layout_width="0dp"
-            android:layout_height="65dp" app:srcCompat="@mipmap/repairing_car"
-            android:id="@+id/ButtonClient"
-            android:background="@drawable/my_button"
-            android:layout_marginTop="40dp"
-            app:layout_constraintTop_toBottomOf="@+id/logo" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
-    <TextView
-            android:text="CLIENTI OFFICINA"
-            android:layout_height="wrap_content"
-            android:id="@+id/clientiTesto"
-            android:textColor="@color/colorPrimaryDark" android:textSize="20sp" android:fontFamily="@font/allerta"
-            android:layout_width="wrap_content"
-            android:gravity="top|center_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/ButtonClient"
-            app:layout_constraintStart_toStartOf="@+id/ButtonClient"
-            app:layout_constraintEnd_toEndOf="@+id/ButtonClient"/>
-    <TextView
-            android:text="CLIENTI AUTORIMESSA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rimessaTesto"
-            android:textColor="@color/colorPrimaryDark" android:textSize="20sp" android:fontFamily="@font/allerta"
-            android:gravity="start|center_vertical"
+            android:layout_height="65dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRimessa"/>
-
-
-    <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="65dp" app:srcCompat="@mipmap/parking"
-            android:background="@drawable/my_button"
-            android:id="@+id/buttonRimessa"
-            app:layout_constraintTop_toBottomOf="@+id/ButtonClient"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="50dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-    <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="65dp" app:srcCompat="@drawable/ic_settings_black_24dp"
-            android:id="@+id/imageButton" android:scaleType="fitCenter"
-            android:background="@drawable/my_button"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginTop="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/calButton" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-            android:text="IMPOSTAZIONI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton"
-            app:layout_constraintStart_toStartOf="@+id/imageButton"
-            android:fontFamily="@font/allerta"
-            android:textColor="@color/colorPrimaryDark" android:textSize="20sp" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton"/>
-    <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="65dp" app:srcCompat="@mipmap/obd2"
-            android:id="@+id/obdButton" android:scaleType="fitCenter" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/my_button"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/textView4"
-            android:layout_marginTop="50dp" app:layout_constraintTop_toBottomOf="@+id/buttonRimessa"/>
-    <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="65dp" app:srcCompat="@mipmap/pic_98"
-            android:id="@+id/dataButton" android:scaleType="fitCenter"
-            android:background="@drawable/my_button"
+            android:paddingLeft="15dp"
+            android:scaleType="fitStart"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginTop="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/buttonRimessa" app:layout_constraintStart_toEndOf="@+id/textView4"
-            android:layout_marginStart="8dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo"
+            app:srcCompat="@mipmap/pic_98" />
+
     <TextView
-            android:text="TextView"
-            android:layout_width="4dp"
-            android:layout_height="0dp"
-            android:id="@+id/textView4"
-            android:visibility="invisible"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/logo"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-            android:text="OBD ERROR"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/obdButton" app:layout_constraintEnd_toEndOf="@+id/obdButton"
-            app:layout_constraintStart_toStartOf="@+id/obdButton" android:layout_marginStart="8dp"
-            android:textColor="@color/colorPrimaryDark" android:fontFamily="@font/allerta" android:textSize="20sp"/>
-    <TextView
-            android:text="DATI VEICOLI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/dataButton" app:layout_constraintStart_toStartOf="@+id/dataButton"
-            app:layout_constraintEnd_toEndOf="@+id/dataButton" android:fontFamily="@font/allerta"
-            android:textSize="20sp" android:textColor="@color/colorPrimaryDark"/>
-    <ImageButton
             android:layout_width="0dp"
-            android:layout_height="65dp" app:srcCompat="@mipmap/pic_11"
-            android:id="@+id/calButton" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/allerta"
+            android:text="DATI VEICOLI"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/dataButton"
+            app:layout_constraintEnd_toEndOf="@+id/dataButton"
+            app:layout_constraintStart_toStartOf="@+id/dataButton"
+            app:layout_constraintTop_toTopOf="@+id/dataButton" />
+
+    <ImageButton
+            android:id="@+id/obdButton"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/my_button"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintTop_toTopOf="@+id/textView6" android:layout_marginTop="48dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            android:paddingLeft="15dp"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dataButton"
+            app:srcCompat="@mipmap/obd2" />
+
     <TextView
+            android:id="@+id/textView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/allerta"
+            android:text="OBD ERROR"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/obdButton"
+            app:layout_constraintEnd_toEndOf="@+id/obdButton"
+            app:layout_constraintStart_toStartOf="@+id/obdButton"
+            app:layout_constraintTop_toTopOf="@+id/obdButton" />
+
+    <ImageButton
+            android:id="@+id/calButton"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/my_button"
+            android:paddingLeft="15dp"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/obdButton"
+            app:srcCompat="@mipmap/pic_11" />
+
+    <TextView
+            android:id="@+id/textView7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/allerta"
             android:text="CALENDARIO INTERVENTI"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/calButton"
+            app:layout_constraintEnd_toEndOf="@+id/calButton"
+            app:layout_constraintStart_toStartOf="@+id/calButton"
+            app:layout_constraintTop_toTopOf="@+id/calButton" />
+
+    <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/my_button"
+            android:paddingLeft="15dp"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calButton"
+            app:srcCompat="@drawable/ic_settings_black_24dp" />
+
+    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/allerta"
+            android:text="IMPOSTAZIONI"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+    <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton"
+            app:srcCompat="@mipmap/pic_101" />
+
+    <EditText
+            android:id="@+id/editTextNote"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@android:color/transparent"
+            android:cursorVisible="true"
+            android:ems="10"
+            android:fontFamily="@font/heebo"
+            android:gravity="top"
+            android:inputType="textAutoCorrect|textMultiLine"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textCursorDrawable="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="24sp"
+            android:typeface="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView23" />
+
+    <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/calButton"
-            android:fontFamily="@font/allerta" android:textSize="20sp"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/calButton" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="@+id/calButton"/>
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/allerta"
+            android:text="Note al volo:"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/editTextNote"
+            app:layout_constraintTop_toTopOf="@+id/imageView23" />
 
 
 </android.support.constraint.ConstraintLayout>
