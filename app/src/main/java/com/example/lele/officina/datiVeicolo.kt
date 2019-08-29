@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
+import android.text.method.TextKeyListener
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -33,7 +34,7 @@ class datiVeicolo : AppCompatActivity() {
         codicePannel.visibility = View.INVISIBLE
             codicePannel.alpha = 0.0f
 
-
+    ditCodice.setKeyListener(TextKeyListener(TextKeyListener.Capitalize.CHARACTERS, true))
 
         fun loadRef(codice: String){
 
@@ -200,6 +201,7 @@ class datiVeicolo : AppCompatActivity() {
                 if (dati["marca"] == "gav"){
 
                     logo.setImageResource(R.mipmap.gav)
+                    logo.setImageResource(R.mipmap.gav)
 
                 }else if(dati["marca"] == "gf"){
 
@@ -212,10 +214,10 @@ class datiVeicolo : AppCompatActivity() {
                         editTextOlio.text = Editable.Factory.getInstance().newEditable(dati["olioMotore"])
                             editTextRaff.text = Editable.Factory.getInstance().newEditable(dati["raffreddamento"])
                                 editTextCambio.text = Editable.Factory.getInstance().newEditable(dati["olioCambio"])
-                                    editTextService.text = Editable.Factory.getInstance().newEditable(dati["coppie"])
+                                    editTextService.text = Editable.Factory.getInstance().newEditable(dati["spiaService"])
                                         editTextBatt.text = Editable.Factory.getInstance().newEditable(dati["batteriaAlternatore"])
                                             editTextVentole.text = Editable.Factory.getInstance().newEditable(dati["ventole"])
-                                                editTextCoppie.text = Editable.Factory.getInstance().newEditable(dati["spiaService"])
+                                                editTextCoppie.text = Editable.Factory.getInstance().newEditable(dati["coppie"])
                                                     editTextCinghia.text = Editable.Factory.getInstance().newEditable(dati["infoCinghia"])
 
 

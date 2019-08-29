@@ -59,7 +59,7 @@ class eod_view : AppCompatActivity() {
         lv!!.adapter = customeAdapter
 
         var k: Intent = Intent(this@eod_view, ListaClienti::class.java)
-
+        var k1: Intent = Intent(this@eod_view, ListaClienti::class.java)
 
         //Carica Dati array
         fun loadRef(){
@@ -374,6 +374,12 @@ class eod_view : AppCompatActivity() {
 
                     startActivity(k)
                         editTextCode.text = Editable.Factory.getInstance().newEditable("")
+
+                }
+                if(stringa == "AUTORIMESSA"){
+
+                    startActivity(k1)
+                         editTextCode.text = Editable.Factory.getInstance().newEditable("")
 
                 }
 
