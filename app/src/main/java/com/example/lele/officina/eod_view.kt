@@ -8,7 +8,6 @@ import android.os.Handler
 import android.view.View
 import kotlinx.android.synthetic.main.activity_eod_view.*
 import android.text.Editable
-import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.TextKeyListener
 import android.view.KeyEvent
@@ -17,11 +16,8 @@ import android.widget.AdapterView
 import android.widget.ListView
 import com.example.lele.officina.adapter.CustomAdapter
 import com.example.lele.officina.data.ImageModel
-import com.example.lele.officina.data.officinaDati
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_eod_view.buttonBack
-import kotlinx.android.synthetic.main.activity_interventi_view.view.*
-import kotlinx.android.synthetic.main.activity_lista_clienti.*
 import android.content.Intent
 import android.net.Uri
 

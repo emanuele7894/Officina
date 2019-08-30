@@ -15,7 +15,6 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_dati_veicolo.*
 import kotlinx.android.synthetic.main.activity_dati_veicolo.buttonBack
 import kotlinx.android.synthetic.main.content_veicle.*
-import kotlinx.android.synthetic.main.content_veicle2.*
 
 class datiVeicolo : AppCompatActivity() {
 
@@ -218,7 +217,6 @@ class datiVeicolo : AppCompatActivity() {
                                         editTextBatt.text = Editable.Factory.getInstance().newEditable(dati["batteriaAlternatore"])
                                             editTextVentole.text = Editable.Factory.getInstance().newEditable(dati["ventole"])
                                                 editTextCoppie.text = Editable.Factory.getInstance().newEditable(dati["coppie"])
-                                                    editTextCinghia.text = Editable.Factory.getInstance().newEditable(dati["infoCinghia"])
 
 
             }else {
@@ -240,7 +238,6 @@ class datiVeicolo : AppCompatActivity() {
             editTextBatt.isFocusableInTouchMode = true
             editTextVentole.isFocusableInTouchMode = true
             editTextCoppie.isFocusableInTouchMode = true
-            editTextCinghia.isFocusableInTouchMode = true
 
 
         }
@@ -256,7 +253,6 @@ class datiVeicolo : AppCompatActivity() {
             editTextBatt.isFocusableInTouchMode = false
             editTextVentole.isFocusableInTouchMode = false
             editTextCoppie.isFocusableInTouchMode = false
-            editTextCinghia.isFocusableInTouchMode = false
 
 
 
@@ -277,8 +273,6 @@ class datiVeicolo : AppCompatActivity() {
                                     datB.set("batteriaAlternatore", editTextBatt.text.toString())
                                         datB.set("ventole", editTextVentole.text.toString())
                                             datB.set("spiaService", editTextCoppie.text.toString())
-                                                datB.set("infoCinghia", editTextCinghia.text.toString())
-
 
 
                 ref2.child(idNameT).setValue(datB).addOnCompleteListener {

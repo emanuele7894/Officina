@@ -5,36 +5,6 @@
                                              android:layout_height="match_parent"
                                              android:background="@color/colorSfondo">
 
-    <TextView
-            android:text="Distribuzione"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:id="@+id/textViewCin"
-            android:textAlignment="center" android:fontFamily="@font/allerta"
-            android:textColor="#FFC107" android:textSize="24sp"
-            app:layout_constraintStart_toEndOf="@+id/imageViewCin"
-            android:layout_marginStart="8dp" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageViewCin"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewCin"/>
-    <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp" app:srcCompat="@mipmap/pic_22"
-            android:id="@+id/imageViewCin" android:layout_marginStart="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/imageTesta"/>
-    <EditText
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:inputType="textMultiLine|textPersonName"
-            android:ems="10"
-            android:id="@+id/editTextCinghia"
-            android:textAlignment="viewStart" android:textColor="#F7FFFFFF" android:fontFamily="@font/allerta"
-            android:background="@android:drawable/editbox_dropdown_dark_frame" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewCin" android:focusable="auto"
-            android:focusableInTouchMode="false" android:gravity="top" android:textSize="16sp"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" android:layout_marginTop="8dp"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" app:srcCompat="@mipmap/cona_180"
