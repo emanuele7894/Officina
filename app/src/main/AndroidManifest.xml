@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.lele.officina">
+        package="com.example.lele.officina">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
             android:allowBackup="true"
@@ -14,19 +14,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme2">
-        <activity android:name=".datiVeicolo"
-                  android:configChanges="orientation"
-                  android:screenOrientation="portrait">
-        </activity>
         <activity
-                android:name=".eod_view"
+                android:name=".auto_clienti"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
         </activity>
+        <activity
+                android:name=".datiVeicolo"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name=".eod_view"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait" />
 
         <meta-data
                 android:name="com.google.android.actions"
-                android:resource="@xml/filepaths"/>
+                android:resource="@xml/filepaths" />
 
         <provider
                 android:name="android.support.v4.content.FileProvider"
@@ -37,59 +41,51 @@
             <!-- ressource file to create -->
             <meta-data
                     android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/filepaths">
-            </meta-data>
+                    android:resource="@xml/filepaths" />
         </provider>
 
         <activity
                 android:name=".Tagliando"
                 android:configChanges="orientation"
-                android:screenOrientation="portrait">
-        </activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".Controllo"
                 android:configChanges="orientation"
-                android:screenOrientation="portrait">
-        </activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".Preventivo"
                 android:configChanges="orientation"
-                android:screenOrientation="portrait">
-        </activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".splashScreen"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
                 android:name=".Home"
                 android:configChanges="orientation"
-                android:screenOrientation="portrait">
-        </activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".ListaClienti"
                 android:configChanges="orientation"
-                android:screenOrientation="portrait">
-        </activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".officina_cli"
                 android:configChanges="orientation"
-                android:screenOrientation="portrait">
-        </activity>
+                android:screenOrientation="portrait" />
         <activity
                 android:name=".interventi_view"
                 android:configChanges="orientation"
-                android:screenOrientation="portrait">
-        </activity>
+                android:screenOrientation="portrait" />
 
         <meta-data
                 android:name="preloaded_fonts"
-                android:resource="@array/preloaded_fonts"/>
+                android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorSfondo"
+        tools:context=".auto_clienti">
+
+    <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:background="@color/colorAccent"
+            android:fontFamily="@font/allerta"
+            android:gravity="center"
+            android:text="Lista clienti Autorimessa"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+            android:id="@+id/buttonAdd"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+
+    <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+            android:id="@+id/searcBar"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            app:mt_textCursorTint="@color/colorPrimaryDark">
+
+
+    </com.mancj.materialsearchbar.MaterialSearchBar>
+
+    <ListView
+            android:id="@+id/listView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/parking"
+            android:divider="#8EB3AEAE"
+            android:dividerHeight="2px"
+            android:footerDividersEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <ListView
+            android:id="@+id/listView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="#E2E2E2"
+            android:divider="#8EB3AEAE"
+            android:dividerHeight="2px"
+            android:footerDividersEnabled="true"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+            android:id="@+id/textView14"
+            android:layout_width="36dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/heebo_bold"
+            android:gravity="top"
+            android:text="+"
+            android:textAlignment="center"
+            android:textColor="#FFC107"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/buttonAdd"
+            app:layout_constraintTop_toTopOf="@+id/buttonAdd" />
+
+    <TextView
+            android:id="@+id/cliItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/allerta"
+            android:text="Numero clienti : "
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
+            app:layout_constraintStart_toEndOf="@+id/buttonBack" />
+
+</android.support.constraint.ConstraintLayout>

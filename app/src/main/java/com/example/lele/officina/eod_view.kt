@@ -55,7 +55,7 @@ class eod_view : AppCompatActivity() {
         lv!!.adapter = customeAdapter
 
         var k: Intent = Intent(this@eod_view, ListaClienti::class.java)
-        var k1: Intent = Intent(this@eod_view, ListaClienti::class.java)
+        var k1: Intent = Intent(this@eod_view, auto_clienti::class.java)
 
         //Carica Dati array
         fun loadRef(){
