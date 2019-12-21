@@ -1,13 +1,11 @@
 package com.example.lele.officina
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.view.View
 import android.widget.*
@@ -21,6 +19,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.widget.EditText
 import android.view.inputmethod.InputMethodManager
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 
 
 class interventi_view : AppCompatActivity() {
@@ -50,6 +50,7 @@ class interventi_view : AppCompatActivity() {
 
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interventi_view)

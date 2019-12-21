@@ -2,7 +2,6 @@ package com.example.lele.officina
 
 import android.animation.ObjectAnimator
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -11,6 +10,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_dati_veicolo.*
 import kotlinx.android.synthetic.main.activity_dati_veicolo.buttonBack

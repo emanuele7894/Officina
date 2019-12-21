@@ -5,10 +5,8 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.net.Uri
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.support.v4.print.PrintHelper
 import android.text.Editable
 import android.util.DisplayMetrics
 import android.view.View
@@ -21,15 +19,19 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
-import android.support.v4.content.FileProvider
 import android.content.ActivityNotFoundException
-
-
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
+import androidx.print.PrintHelper
 
 
 class Preventivo : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.O)
     var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+    @RequiresApi(Build.VERSION_CODES.O)
     var current = LocalDate.now().format(formatter)
     var conto1 = 0.00
     var conto2 = 0.00

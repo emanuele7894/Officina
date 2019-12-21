@@ -3,19 +3,19 @@ package com.example.lele.officina
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import com.google.firebase.FirebaseApp
-import android.support.v4.app.ActivityCompat
 import android.preference.PreferenceManager
-import android.support.constraint.ConstraintSet
 import android.text.Editable
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.lele.officina.data.KeyboardEventListener
 import kotlinx.android.synthetic.main.activity_home.*
 

@@ -2,20 +2,18 @@ package com.example.lele.officina
 
 import android.animation.ObjectAnimator
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.lele.officina.adapter.offiListAdapter
 import com.example.lele.officina.data.officinaDati
 import com.google.firebase.database.*
 import com.mancj.materialsearchbar.MaterialSearchBar
-import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.android.synthetic.main.activity_lista_clienti.*
-import kotlinx.android.synthetic.main.activity_officina_cli.*
 import java.util.*
 
 class ListaClienti : AppCompatActivity() {
@@ -52,40 +50,24 @@ class ListaClienti : AppCompatActivity() {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            var i = 0
+
 
             override fun onDataChange(p0: DataSnapshot) {
 
                 if(p0.exists()){
 
-
-
-
-
                    for(h in p0.children){
 
-
-
                        val dat = h.getValue(officinaDati::class.java)
-                       dati.add(dat!!)
-
-                        datiRicerca.add(dat.idName)
-                         cliItem.text = "Numero clienti : " + datiRicerca.count()
-
-
-                           i += 1
-
-
+                            dati.add(dat!!)
+                       datiRicerca.add(dat.idName)
+                                    cliItem.text = "Numero clienti : " + datiRicerca.count()
 
                    }
 
-                    i = 0
-
 
                     val adapter = offiListAdapter(applicationContext, R.layout.offic_list_row, dati)
-                       listView.adapter = adapter
-
-
+                        listView.adapter = adapter
 
 
                 }

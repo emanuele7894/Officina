@@ -2,7 +2,6 @@ package com.example.lele.officina
 
 import android.animation.ObjectAnimator
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -20,6 +19,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_eod_view.buttonBack
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 
 
 class eod_view : AppCompatActivity() {

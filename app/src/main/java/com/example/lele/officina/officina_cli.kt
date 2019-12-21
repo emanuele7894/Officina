@@ -1,14 +1,12 @@
 package com.example.lele.officina
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
@@ -25,6 +23,8 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import android.text.method.TextKeyListener
 import android.view.KeyEvent
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 
 
 class officina_cli : AppCompatActivity() {

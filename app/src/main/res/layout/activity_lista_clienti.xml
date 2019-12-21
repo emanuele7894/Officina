@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -81,4 +81,4 @@
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="@+id/textView8"
             android:textAlignment="center" android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:fontFamily="@font/allerta"/>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
